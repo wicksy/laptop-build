@@ -1,6 +1,7 @@
 pkg:
   installed:
     - git
-    - laptop-mode-tools 
+    - laptop-mode-tools
+    - nfs-common
     - python
     - python-pip

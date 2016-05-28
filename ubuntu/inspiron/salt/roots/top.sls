@@ -1,4 +1,5 @@
 base:
   '*':
+    - mounts
     - pip
     - pkg
