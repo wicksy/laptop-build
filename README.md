@@ -4,7 +4,11 @@
 
 #### Ubuntu 15.10 on Dell Inspiron
 
-* Obtain and run a copy of https://raw.githubusercontent.com/wicksy/laptop-build/master/ubuntu/inspiron/bin/bootwifi.sh to configure wifi adapter
+* Obtain and run a copy of the following script to configure the wifi adapter:
+
+```
+$ https://raw.githubusercontent.com/wicksy/laptop-build/master/ubuntu/inspiron/bin/bootwifi.sh
+```
 
 * Download and run the bootstrap:
 
