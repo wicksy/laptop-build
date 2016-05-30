@@ -2,3 +2,4 @@ base:
   '*':
     - pip
     - pkg
+    - users
