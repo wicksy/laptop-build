@@ -1,8 +1,8 @@
-#### Salt and Bash to help rebuild my laptops
+## Salt and Bash to help rebuild my laptops
 
 * ubuntu/inspiron - Rebuild Dell Inspiron N15 booted from Ubuntu 15.10 Minimal Server ISO
 
-## Ubuntu 15.10 on Dell Inspiron
+#### Ubuntu 15.10 on Dell Inspiron
 
 * Obtain and run a copy of https://raw.githubusercontent.com/wicksy/laptop-build/master/ubuntu/inspiron/bin/bootwifi.sh to configure wifi adapter
 
