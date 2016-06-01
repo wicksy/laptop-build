@@ -1,5 +1,6 @@
 base:
   '*':
+    - docker
     - mounts
     - pip
     - pkg
