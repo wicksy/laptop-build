@@ -1,9 +1,6 @@
 base:
-  '*':
-    - docker
-    - mounts
+  'Dell-Inspiron*':
     - pip
     - pkg
-    - salt
     - ssh
     - users
