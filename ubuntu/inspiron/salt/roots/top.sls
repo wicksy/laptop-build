@@ -4,5 +4,6 @@ base:
     - mounts
     - pip
     - pkg
+    - salt
     - ssh
     - users
