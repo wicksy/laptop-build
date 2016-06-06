@@ -6,5 +6,5 @@ base:
     - pip
     - pkg
     - salt
-    - ssh
+    - sshkeys
     - users

@@ -20,7 +20,7 @@ dotgiles-github:
       - file: dotfiles-directory
 
 {%- for user in ['root','wicksy'] %}
-  {%- for file in ['.vimrc','.bashrc'] %}
+  {%- for file in ['.vimrc', '.vim', '.bashrc'] %}
 dotfiles-{{ user }}-{{ file }}-link:
   file.symlink:
     {%- if user == "root" %}

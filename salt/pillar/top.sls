@@ -2,5 +2,5 @@ base:
   'Dell-Inspiron*':
     - pip
     - pkg
-    - ssh
+    - sshkeys
     - users
