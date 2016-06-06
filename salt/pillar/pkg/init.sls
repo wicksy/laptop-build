@@ -1,6 +1,7 @@
 pkg:
   installed:
     - git
+    - i3
     - laptop-mode-tools
     - nfs-common
     - prey
@@ -9,3 +10,4 @@ pkg:
     - vagrant
     - virtualbox
     - whois
+    - xinit
