@@ -1,21 +1,22 @@
 dotfiles-directory:
   file.directory:
-    - user: wicksy
-    - group: wicksy
+    - user: root
+    - group: root
     - mode: 755
-    - makedirs : True
-    - require:
-      - sls: users
+    - makedirs: True
+    - recurse:
+      - user
+      - group
     - names:
-      - /home/wicksy/git
-      - /home/wicksy/git/configfiles
+      - /git
+      - /git/wicksy
 
 dotgiles-github:
   git.latest:
-    - name: https://github.com/wicksy/configfiles.git
+    - name: git@github.com:wicksy/configfiles.git
     - branch: master
-    - user: wicksy
-    - target: /home/wicksy/git/configfiles
+    - user: root
+    - target: /git/wicksy/configfiles
     - require:
       - file: dotfiles-directory
 
@@ -28,10 +29,12 @@ dotfiles-{{ user }}-{{ file }}-link:
     {%- else %}
     - name: /home/{{ user }}/{{ file }}
     {%- endif %}
-    - target: /home/wicksy/git/configfiles/dotfiles/{{ file }}
+    - target: /git/wicksy/configfiles/dotfiles/{{ file }}
     - force: True
     - user: wicksy
     - group: wicksy
     - mode: 644
+    - require:
+      - sls: users
   {% endfor %}
 {% endfor %}
