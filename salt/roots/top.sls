@@ -2,6 +2,7 @@ base:
   'Dell-Inspiron*':
     - docker
     - dotfiles
+    - git
     - mounts
     - pip
     - pkg
