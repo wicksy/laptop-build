@@ -9,3 +9,4 @@ base:
     - salt
     - sshkeys
     - users
+    - vagrant
