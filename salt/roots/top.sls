@@ -4,6 +4,7 @@ base:
     - dotfiles
     - git
     - mounts
+    - ntp
     - pip
     - pkg
     - salt

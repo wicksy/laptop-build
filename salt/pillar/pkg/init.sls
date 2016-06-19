@@ -4,7 +4,6 @@ pkg:
     - i3
     - laptop-mode-tools
     - nfs-common
-    - prey
     - python
     - python-pip
     - vagrant

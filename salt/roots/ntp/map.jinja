@@ -1,0 +1,6 @@
+{% set ntp = salt['grains.filter_by']({
+    'Debian': {
+        'servers': ['0.pool.ntp.org iburst', '1.pool.ntp.org iburst',
+                    '2.pool.ntp.org iburst', '3.pool.ntp.org iburst'],
+    },
+}, merge=salt['pillar.get']('ntp', default={ }, )) %}
