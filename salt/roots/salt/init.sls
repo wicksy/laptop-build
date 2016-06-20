@@ -5,6 +5,15 @@ salt-service-dead:
   service.dead:
     - name: salt-minion
 
+salt-minion-config:
+  file.managed:
+    - name: /etc/salt/minion
+    - source: salt://salt/templates/minion
+    - user: root
+    - group: root
+    - mode: 644
+    - template: jinja
+
 salt-directories:
   file.directory:
     - user: root
