@@ -1,13 +1,21 @@
 pkg:
   installed:
+    - curl
     - git
+    - gnupg
     - i3
     - language-pack-en-base
     - laptop-mode-tools
     - nfs-common
+    - openssh-client
+    - openssh-server
+    - openssh-sftp-server
+    - openssl
     - python
     - python-pip
     - vagrant
+    - vim
     - virtualbox
+    - wget
     - whois
     - xinit
