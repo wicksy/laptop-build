@@ -1,5 +1,6 @@
 base:
   'Dell-Inspiron*':
+    - cron
     - git
     - ntp
     - pip
