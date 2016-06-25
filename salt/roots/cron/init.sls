@@ -1,5 +1,17 @@
 {% from "cron/map.jinja" import cronjobs with context %}
 
+cron-pkg:
+  pkg.installed:
+    - pkgs:
+      - cron
+
+cron-service:
+  service.running:
+    - name: cron
+    - enable: True
+    - require:
+      - pkg: cron-pkg
+
 crontab-path:
   cron.env_present:
     - name: PATH
@@ -21,6 +33,8 @@ cronjob-present-{{index}}:
     - dayweek: {{ cronjobs['jobs'][index]['dayweek']|default("'*'") }}
     - require:
       - sls: users
+      - pkg: cron-pkg
+      - service: cron-service
 
   {% else %}
 
@@ -30,6 +44,8 @@ cronjob-absent-{{index}}:
     - user: {{ cronjobs['jobs'][index]['user'] }}
     - require:
       - sls: users
+      - pkg: cron-pkg
+      - service: cron-service
 
   {% endif %}
 
