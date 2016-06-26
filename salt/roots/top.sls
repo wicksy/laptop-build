@@ -3,6 +3,7 @@ base:
     - cron
     - docker
     - dotfiles
+    - entropy
     - git
     - mounts
     - ntp
@@ -10,5 +11,6 @@ base:
     - pkg
     - salt
     - sshkeys
+    - timezone
     - users
     - vagrant
