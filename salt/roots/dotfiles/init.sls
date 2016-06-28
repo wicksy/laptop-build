@@ -21,7 +21,7 @@ dotgiles-github:
       - file: dotfiles-directory
 
 {%- for user in ['root','wicksy'] %}
-  {%- for file in ['.vimrc', '.vim', '.bashrc'] %}
+  {%- for file in ['.vimrc', '.bashrc'] %}
 dotfiles-{{ user }}-{{ file }}-link:
   file.symlink:
     {%- if user == "root" %}
@@ -37,4 +37,16 @@ dotfiles-{{ user }}-{{ file }}-link:
     - require:
       - sls: users
   {% endfor %}
+vim-{{ user }}-directory:
+  file.directory:
+  {%- if user == "root" %}
+    - name: /{{ user }}/.vim
+  {%- else %}
+    - name: /home/{{ user }}/.vim
+  {%- endif %}
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 755
+    - require:
+      - sls: users
 {% endfor %}
