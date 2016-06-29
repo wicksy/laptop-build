@@ -7,3 +7,4 @@ base:
     - pkg
     - sshkeys
     - users
+    - vim

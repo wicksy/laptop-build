@@ -14,3 +14,4 @@ base:
     - timezone
     - users
     - vagrant
+    - vim
