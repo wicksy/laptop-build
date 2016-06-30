@@ -1,20 +1,33 @@
 pkg:
   installed:
+    - apt-file
+    - atsar
+    - blktrace
+    - chromium-browser
     - curl
+    - diod
     - git
     - gnupg
+    - htop
     - i3
+    - iotop
     - language-pack-en-base
     - laptop-mode-tools
     - nfs-common
+    - ntop
     - openssh-client
     - openssh-server
     - openssh-sftp-server
     - openssl
     - python
     - python-pip
+    - sysstat
+    - tree
     - vagrant
     - vim
+    - vim-addon-manager
+    - vim-puppet
+    - vim-syntax-docker
     - virtualbox
     - wget
     - whois
