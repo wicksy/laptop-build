@@ -8,6 +8,8 @@ pkg:
     - diod
     - git
     - gnupg
+    - handbrake
+    - handbrake-cli
     - htop
     - i3
     - iotop
@@ -29,6 +31,8 @@ pkg:
     - vim-puppet
     - vim-syntax-docker
     - virtualbox
+    - vlc
     - wget
     - whois
+    - x264
     - xinit
