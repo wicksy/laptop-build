@@ -18,3 +18,7 @@ sshkey-{{ user }}-managed:
     {%- endif %}
   {% endfor %}
 {%- endif %}
+
+sshkey-root-managed:
+  file.absent:
+    - name: /root/.ssh/authorized_keys
