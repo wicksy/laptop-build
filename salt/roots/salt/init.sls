@@ -26,6 +26,7 @@ salt-directories:
     - names:
       - /git
       - /git/wicksy
+      - /srv/formulas
 
 salt-github:
   git.latest:
@@ -36,3 +37,15 @@ salt-github:
     - require:
       - file: salt-directories
 
+{%- if salt['pillar.get']('salt:formulas') %}
+  {%- for formula, config in salt['pillar.get']('salt:formulas').iteritems() %}
+salt-{{ formula }}-formula:
+  git.latest:
+    - name: {{ config.git }}
+    - branch: master
+    - user: root
+    - target: /srv/formulas/{{ formula }}-formula
+    - require:
+      - file: salt-directories
+  {% endfor %}
+{% endif %}
