@@ -5,6 +5,7 @@ base:
     - ntp
     - pip
     - pkg
+    - ssh
     - sshkeys
     - users
     - vim

@@ -1,0 +1,15 @@
+{%- if salt['pillar.get']('sshd_config') %}
+  {%- for k, v in salt['pillar.get']('sshd_config').iteritems() %}
+    {%- if v is sameas true %}
+{{ k }} yes
+    {%- elif v is sameas false %}
+{{ k }} no
+    {%- elif v is string or v is number %}
+{{ k }} {{ v }}
+    {%- else %}
+      {%- for l in v %}
+{{ k }} {{ l }}
+      {%- endfor %}
+    {%- endif %}
+  {%- endfor %}
+{%- endif %}

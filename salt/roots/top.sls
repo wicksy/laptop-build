@@ -10,6 +10,7 @@ base:
     - pip
     - pkg
     - salt
+    - ssh
     - sshkeys
     - timezone
     - users
