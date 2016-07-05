@@ -17,9 +17,6 @@ pkg:
     - laptop-mode-tools
     - nfs-common
     - ntop
-    - openssh-client
-    - openssh-server
-    - openssh-sftp-server
     - openssl
     - python
     - python-pip
