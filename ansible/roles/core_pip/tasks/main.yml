@@ -1,0 +1,6 @@
+- name: Install pips
+  pip:
+    name="{{ item }}"
+    state=latest
+  with_items:
+    - "{{ core_pips | default([]) }}"
