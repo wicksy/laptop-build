@@ -1,0 +1,9 @@
+- hosts: dell-inspiron
+  remote_user: ansible
+  become: true
+  become_user: root
+  become_method: sudo
+
+  roles:
+    -  core_pkg
+    -  core_pip
