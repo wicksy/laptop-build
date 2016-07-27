@@ -1,0 +1,11 @@
+- name: Install cron tasks
+  cron:
+    name: "{{ item.value.name }}"
+    state: "{{ item.value.state | default('present') }}"
+    hour: "{{ item.value.hour | default('00') }}"
+    minute: "{{ item.value.minute | default('30') }}"
+    day: "{{ item.value.day | default('*') }}"
+    cron_file: "{{ item.value.user }}-{{ item.key }}"
+    user: "{{ item.value.user }}"
+    job: "{{ item.value.job }}"
+  with_dict: "{{ cronjobs | default({}) }}"
