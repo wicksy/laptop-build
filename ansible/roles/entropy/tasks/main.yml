@@ -1,0 +1,10 @@
+- name: Install Entropy Package
+  package:
+    name: haveged
+    state: latest
+
+- name: Entropy Service
+  service:
+    name: haveged
+    state: started
+    enabled: yes
