@@ -1,0 +1,31 @@
+- name: Make Mount Points
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - /mnt/buffalo/
+    - /mnt/buffalo/a
+    - /mnt/buffalo/b
+    - /mnt/samsung/
+    - /mnt/ds415plus
+    - /mnt/ds415plus/Dell-Inspiron
+    - /mnt/ds415plus/Media
+
+- name: Commented block in fstab
+  blockinfile:
+    dest: /etc/fstab
+    backup: yes
+    create: no
+    marker: "# {mark} Ansible managed block -DO-NOT-EDIT-"
+    state: present
+    block: |
+      #
+      # mount -t ntfs /dev/sdb5 /mnt/buffalo/a
+      # mount -t ntfs /dev/sdc5 /mnt/buffalo/b
+      # mount -t ntfs /dev/sdd1 /mnt/samsung
+      # mount -t nfs ds415plus:/volume4/Dell-Inspiron /mnt/ds415plus/Dell-Inspiron
+      # mount -t nfs ds415plus:/volume1/Media /mnt/ds415plus/Media
+      #
