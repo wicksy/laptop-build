@@ -1,0 +1,18 @@
+- name: Create Users
+  user:
+    name: "{{ item.key }}"
+    state: "{{ item.value.state | default('absent') }}"
+    shell: "{{ item.value.shell | default('/bin/bash') }}"
+    home: "{{ item.value.home | default('/home/' + item.key) }}"
+    createhome: yes
+    comment: "{{ item.value.comment | default('User') }}"
+    password: "{{ item.value.password }}"
+    update_password: always
+  with_dict: "{{ users | default({}) }}"
+
+- name: Modify Users
+  user:
+    name: "{{ item.key }}"
+    groups: "{{ item.value.groups | join(',') }}"
+  when: item.value.groups is defined
+  with_dict: "{{ users | default({}) }}"
