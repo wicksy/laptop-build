@@ -1,0 +1,20 @@
+- name: Install NTP Package
+  package:
+    name: ntp
+    state: latest
+
+- name: NTP Service
+  service:
+    name: ntp
+    state: started
+    enabled: yes
+
+- name: Write /etc/ntp.conf
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart NTP
