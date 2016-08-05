@@ -1,0 +1,19 @@
+- name: Dotfiles Directory
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - /git
+    - /git/wicksy
+
+- name: Configfiles Git Repo
+  git:
+    repo: https://github.com/wicksy/configfiles.git
+    dest: /git/wicksy/configfiles
+    version: master
+    clone: yes
+    update: yes
+
