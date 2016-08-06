@@ -1,0 +1,24 @@
+- name: Install SSH Packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - openssh-client
+    - openssh-server
+    - openssh-sftp-server
+
+- name: SSHD Service
+  service:
+    name: ssh
+    state: started
+    enabled: yes
+
+- name: Write /etc/ssh/sshd_config
+  template:
+    src: sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart SSHD
