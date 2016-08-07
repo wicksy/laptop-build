@@ -1,0 +1,32 @@
+- name: Root keys absent
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /root/.ssh/authorized_keys
+    - /root/.ssh/authorized_keys2
+
+- name: Authorized SSH keys (directories)
+  file:
+    path: "{{ '/home/' + item.key + '/.ssh' }}"
+    state: directory
+    owner: "{{ item.key }}"
+    mode: 0700
+  with_dict: "{{ sshkeys | default({}) }}"
+
+- name: Authorized SSH keys (entries)
+  authorized_key:
+    user: "{{ item.key }}"
+    state: "{{ item.value.state | default('absent') }}"
+    path: "{{ '/home/' + item.key + '/.ssh/authorized_keys' }}"
+    key: "{{ item.value.key }}"
+  with_dict: "{{ sshkeys | default({}) }}"
+
+- name: Authorized SSH keys (attributes)
+  file:
+    path: "{{ '/home/' + item.key + '/.ssh/authorized_keys' }}"
+    owner: "{{ item.key }}"
+    mode: 0600
+  with_dict: "{{ sshkeys | default({}) }}"
+
+
