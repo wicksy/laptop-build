@@ -1,0 +1,5 @@
+- name: Set timezone to GB
+  when: ansible_date_time.tz != 'GB' and
+        ansible_date_time.tz != 'BST' and
+        ansible_date_time.tz != 'GMT'
+  command: timedatectl set-timezone GB
