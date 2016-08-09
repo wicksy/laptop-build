@@ -1,0 +1,18 @@
+- name: Git config (wicksy)
+  template:
+    src: gitconfig.j2
+    dest: /home/wicksy/.gitconfig
+    owner: wicksy
+    group: wicksy
+    mode: 0644
+  with_dict: "{{ gitconfig | default({}) }}"
+
+- name: Git config (root)
+  template:
+    src: gitconfig.j2
+    dest: /root/.gitconfig
+    owner: root
+    group: root
+    mode: 0644
+  with_dict: "{{ gitconfig | default({}) }}"
+

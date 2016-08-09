@@ -1,0 +1,9 @@
+{%- if gitconfig is defined -%}
+  {% for section, settings in gitconfig.iteritems() -%}
+[{{ section }}]
+    {% for key, value in settings.items() -%}
+{{ key }} = {{ value }}
+    {% endfor -%}
+  {%- endfor -%}
+{%- endif -%}
+
