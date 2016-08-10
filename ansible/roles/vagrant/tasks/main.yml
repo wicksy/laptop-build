@@ -1,0 +1,16 @@
+- name: Vagrant Directory
+  file:
+    path: /home/wicksy/vagrant
+    state: directory
+    owner: wicksy
+    group: wicksy
+    mode: 0755
+
+- name: Vagrant File
+  file:
+    state: link
+    src: /git/wicksy/configfiles/vagrant/Vagrantfile
+    dest: /home/wicksy/vagrant/Vagrantfile
+    owner: wicksy
+    group: wicksy
+    mode: 0644

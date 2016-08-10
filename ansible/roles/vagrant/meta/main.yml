@@ -1,0 +1,4 @@
+dependencies:
+  - { role: core_pkg }
+  - { role: dotfiles }
+  - { role: users }
