@@ -1,0 +1,6 @@
+- name: Install vim plugins
+  command: vim-addons --target-dir="{{ target }}" install "{{ item }}"
+  with_items:
+    - dockerfile
+    - jinja
+    - puppet
