@@ -43,3 +43,24 @@ core_pips:
   - pep8
   - virtualenv
   - virtualenvwrapper
+
+users:
+  wicksy:
+    state: present
+    comment: Martin Wicks
+    password: $6$Mdjwh64Sncg381dd$RyXJ6VOfBbKUqPBmdLSPIgcWWfOR0r4CZW3Dkvr0TDP/hQPr9PK8lTkfdASOBwyrB0IT2mp3MAJsrwd2MMcSM0
+    groups:
+      - sudo
+      - docker
+
+sshkeys:
+  wicksy:
+    state: present
+    key: ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnEIpXFliJ8TUvNEYRD7yrE1XbI/h5SFNvC+adOJ3rmwyFncUwQU4OUDMCqq45vc4mei6LzuO1bUH7sQkZaD+0QX5f6KvJlDkWIJaRlB7/rQxBr01incMyEzo1Xxsmarz4wv2IiROy7KnKP4VaDvFScUF8c/DyaStyj2BeV32rLiIwFI2l9LOHSy94sT9Bj5Ef+uTtGeO5ptWW89i/bo/IaB6ah7Hkk+NC8OplPJieEdzIkODLXZvwTon6NkcADIncrRA/8vpc3GxoCmyHdNPZp/facgHv9a7up2vXvEa6QWdLQwQqHDhsSOR2a9TxRTGKclrRsfBdXPd+i5dI+uC/Q== MacBookPro
+
+gitconfig:
+  user:
+    email: wicksy@wicksy.com
+    name: Martin Wicks
+  core:
+    editor: vim
