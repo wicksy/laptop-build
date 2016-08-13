@@ -5,5 +5,18 @@
   become_method: sudo
 
   roles:
-    -  core_pkg
-    -  core_pip
+    - cron
+    - core_pkg
+    - core_pip
+    - docker
+    - dotfiles
+    - entropy
+    - git
+    - mounts
+    - ntp
+    - ssh
+    - sshkeys
+    - timezone
+    - vagrant
+    - vim
+    - users
