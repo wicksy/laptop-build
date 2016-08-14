@@ -4,12 +4,16 @@
 # and run to configure everything (currently using Salt or Ansible). Initially
 # supporting only Ubuntu but to be extended later to other distros.
 #
+set -o pipefail
+set -e
 
 # Setup wifi on Ubuntu (create a /etc/network/interfaces.d file after establishing
 # SSID and wi-fi password)
 #
 setup_ubuntu() {
 
+  echo "${yellow}==> (${host}) Enter wifi device:"
+  read devid
   echo "${yellow}==> (${host}) Enter SSID:"
   read ssid
   echo "${yellow}==> (${host}) Enter passphrase:"
@@ -18,16 +22,16 @@ setup_ubuntu() {
           | /usr/bin/tr -d ' \t' \
           | /usr/bin/awk -F'=' '$1 == "psk" {print $2}')
 
-  cat > /etc/network/interfaces.d/wlp9s0 <<EOF
+  cat > "/etc/network/interfaces.d/${devid}" <<EOF
 # Wireless interface
-auto wlp9s0
-iface wlp9s0 inet dhcp
+auto ${devid}
+iface ${devid} inet dhcp
   wpa-ssid ${ssid}
   wpa-psk ${key}
 EOF
 
   /bin/chmod 600 /etc/network/interfaces /etc/network/interfaces.d/*
-  echo "${white}==> (${host}) Updated /etc/network/interfaces.d/wlp9s0...."
+  echo "${white}==> (${host}) Updated /etc/network/interfaces.d/${devid}...."
 
 }
 
@@ -38,7 +42,7 @@ green=$(tput setaf 2)
 blue=$(tput setaf 4)
 yellow=$(tput setaf 11)
 white=$(tput setaf 15)
-reset=$(tput sgr0)# Reset
+reset=$(tput sgr0)
 
 # Establish distro and call appropriate function
 #
