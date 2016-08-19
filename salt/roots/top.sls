@@ -1,5 +1,5 @@
 base:
-  'Dell-Inspiron*':
+  '*':
     - cron
     - docker
     - dotfiles
