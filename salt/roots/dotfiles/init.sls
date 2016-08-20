@@ -11,9 +11,9 @@ dotfiles-directory:
       - /git
       - /git/wicksy
 
-dotgiles-github:
+dotfiles-github:
   git.latest:
-    - name: git@github.com:wicksy/configfiles.git
+    - name: https://github.com/wicksy/configfiles.git
     - branch: master
     - user: root
     - target: /git/wicksy/configfiles
