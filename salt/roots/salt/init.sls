@@ -30,7 +30,7 @@ salt-directories:
 
 salt-github:
   git.latest:
-    - name: git@github.com:wicksy/laptop-build.git
+    - name: https://github.com/wicksy/laptop-build.git
     - branch: master
     - user: root
     - target: /git/wicksy/laptop-build
