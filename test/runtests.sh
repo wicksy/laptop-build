@@ -7,9 +7,7 @@ salt)
   vagrant="salttest"
   ;;
 ansible)
-  vagrant="ansible"
-  echo "Ansible tests not implemented just yet"
-  exit 0
+  vagrant="ansibletest"
   ;;
 *)
   echo "Invalid test type (salt or ansible only)"
@@ -53,9 +51,9 @@ pip install testinfra paramiko
 
 # Bring up VM and provision, save ssh key for tests and run tests
 #
-vagrant up salttest --provision \
-  && vagrant ssh-config salttest > salttest-sshkey \
-  && testinfra -v --hosts=salttest --ssh-config=salttest-sshkey ${tests}
+vagrant up "${vagrant}" --provision \
+  && vagrant ssh-config "${vagrant}" > "${vagrant}"-sshkey \
+  && testinfra -v --hosts="${vagrant}" --ssh-config="${vagrant}"-sshkey ${tests}
 
 # Exit from the virtual environment and clean it up
 #
