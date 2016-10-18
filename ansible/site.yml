@@ -1,4 +1,6 @@
-- hosts: dell-inspiron
+- hosts:
+    - ansible-test
+    - dell-inspiron
   remote_user: ansible
   become: true
   become_user: root
