@@ -15,5 +15,31 @@
     dest: /git/wicksy/configfiles
     version: master
     clone: yes
+    force: yes
     update: yes
 
+- name: Links for root
+  file:
+    state: link
+    src: /git/wicksy/configfiles/dotfiles/{{ item }}
+    dest: /root/{{ item }}
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+  with_items:
+    - .bashrc
+    - .vimrc
+
+- name: Links for wicksy
+  file:
+    state: link
+    src: /git/wicksy/configfiles/dotfiles/{{ item }}
+    dest: /home/wicksy/{{ item }}
+    owner: wicksy
+    group: wicksy
+    mode: 0644
+    force: yes
+  with_items:
+    - .bashrc
+    - .vimrc
