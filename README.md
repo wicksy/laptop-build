@@ -27,6 +27,212 @@ $ /usr/bin/curl -L https://raw.githubusercontent.com/wicksy/laptop-build/master/
 $ /usr/bin/sudo -H -u ansible /bin/bash -c "cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml -vv"
 ```
 
+#### Salt Pillar Data
+
+The following section includes examples of Salt pillar data used by the states:
+
+* cron
+
+```
+cronjobs:
+  jobs:
+    testjob:
+      enabled: True
+      command: "echo $(date)"
+      user: bob
+      hour: 12
+      minute: 30
+      daymonth: "'*'"
+      month: "'*'"
+      dayweek: "'*'"
+```
+
+* git
+
+```
+git:
+  config:
+      bob:
+        user.email:
+          value: bob@gmail.com
+          global: True
+        user.name:
+          value: Bob Smith
+          global: True
+        core.editor:
+          value: vim
+          global: True
+```
+
+* ntp
+
+```
+ntp:
+  servers:
+    - 0.pool.ntp.org
+    - 1.pool.ntp.org
+    - 2.pool.ntp.org
+    - 3.pool.ntp.org
+```
+
+* pip
+
+```
+pip:
+  installed:
+    - pip==8.1.1
+    - awscli
+    - boto3
+    - docker-py==1.7.2
+    - gitpython
+```
+
+* pkg
+
+```
+pkg:
+  installed:
+    - apt-file
+    - atsar
+    - blktrace
+    - chromium-browser
+    - curl
+```
+
+* sshd_config
+
+```
+sshd_config:
+  Port: 22
+  Protocol: 2
+  HostKey:
+    - /etc/ssh/ssh_host_rsa_key
+    - /etc/ssh/ssh_host_dsa_key
+    - /etc/ssh/ssh_host_ecdsa_key
+    - /etc/ssh/ssh_host_ed25519_key
+  UsePrivilegeSeparation: yes
+```
+
+* sshkeys
+
+```
+sshkeys:
+  bob:
+    present: True
+    enc: ssh-rsa
+    key: AAAAB3NzaC1yc2EAAAABIwAAAQEAnEIpXFliJ8TUvNEYRD7yrE1XbI/h5SFNvC+adOJ3rmwyFncUwQU4OUDMCqq45vc4mei6LzuO1bUH7sQkZaD+0QX5f6KvJlDkWIJaRlB7/rQxBr01incMyEzo1Xxsmarz4wv2IiROy7KnKP4VaDvFScUF8c/DyaStyj2BeV32rLiIwFI2l9LOHSy94sT9Bj5Ef+uTtGeO5ptWW89i/bo/T8dhanejYrkdhsncksay$3727dDJGNF96ugfsssFJfhfff//ff48fsaAnfhtt9934726dDFNHMTihknmdsRafjdkshhhananUUqSJVNGL784ejfl++4rjdb=ssjrhfXC/Q==
+    comment: test ssh key
+```
+
+* users
+
+```
+users:
+  bob:
+    present: True
+    fullname: Bob Smith
+    password: $5+DDDmfjfnv48f6s$$rhf8RsnchatY68hY37shT59ghaXah48gkdschruf0Rtyhsbn8ds//dh48fnlsjhBsjayTwwLdotnc2MMfhfyeM0
+    home: /home/bob
+    shell: /bin/bash
+    groups:
+      - nginx
+      - root
+```
+
+* vim
+
+```
+vim:
+  plugins:
+    - dockerfile
+    - jinja
+    - puppet
+```
+
+#### Ansible Variables
+
+The following section includes examples of Ansible variables used by the plays:
+
+* core_pkgs
+
+```
+core_pkgs:
+  - apt-file
+  - atsar
+  - blktrace
+  - chromium-browser
+  - curl
+```
+
+* core_pips
+
+```
+core_pips:
+  - pip==8.1.1
+  - awscli
+  - boto3
+  - docker-py==1.7.2
+  - gitpython
+```
+
+* gitconfig
+
+```
+gitconfig:
+  user:
+    email: bob@gmail.com
+    name: Bob Smith
+  core:
+    editor: vim
+```
+
+* ntp
+
+```
+ntp:
+  servers:
+    - 0.pool.ntp.org
+    - 1.pool.ntp.org
+    - 2.pool.ntp.org
+    - 3.pool.ntp.org
+```
+
+* sshd_config
+
+```
+sshd_config:
+  Port: 22
+  Protocol: 2
+  HostKey:
+    - /etc/ssh/ssh_host_rsa_key
+    - /etc/ssh/ssh_host_dsa_key
+    - /etc/ssh/ssh_host_ecdsa_key
+    - /etc/ssh/ssh_host_ed25519_key
+  UsePrivilegeSeparation: yes
+```
+
+* sshkeys
+
+```
+sshkeys:
+  bob:
+    state: present
+    key: ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnEIpXFliJ8TUvNEYRD7yrE1XbI/h5SFNvC+adOJ3rmwyFncUwQU4OUDMCqq45vc4mei6LzuO1bUH7sQkZaD+0QX5f6KvJlDkWIJaRlB7/rQxBr01incMyEzo1Xxsmarz4wv2IiROy7KnKP4VaDvFScUF8c/DyaStyj2BeV32rLiIwFI2l9LOHSy94sT9Bj5Ef+uTtGeO5ptWW89i/bo/T8dhanejYrkdhsncksay$3727dDJGNF96ugfsssFJfhfff//ff48fsaAnfhtt9934726dDFNHMTihknmdsRafjdkshhhananUUqSJVNGL784ejfl++4rjdb=ssjrhfXC/Q== Testing Key
+```
+
+* users
+
+```
+users:
+  bob:
+    state: present
+    comment: Bob Smith
+    password: $5+DDDmfjfnv48f6s$$rhf8RsnchatY68hY37shT59ghaXah48gkdschruf0Rtyhsbn8ds//dh48fnlsjhBsjayTwwLdotnc2MMfhfyeM0
+    groups:
+      - sudo
+      - docker
+```
+
 #### Tests
 
 There are a number of tests implemented using the serverspec-like testing framework for Python [**testinfra**](https://github.com/philpep/testinfra). Tests
