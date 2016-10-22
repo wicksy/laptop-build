@@ -64,3 +64,13 @@ gitconfig:
     name: Martin Wicks
   core:
     editor: vim
+
+cronjobs:
+  testjob:
+    name: Test
+    state: present
+    hour: 06
+    minute: 11
+    day: '*'
+    user: wicksy
+    job: "date > /tmp/date.out"

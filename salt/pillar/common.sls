@@ -1,3 +1,15 @@
+cronjobs:
+  jobs:
+    testjob:
+      enabled: True
+      command: "echo $(date)"
+      user: wicksy
+      hour: 12
+      minute: 30
+      daymonth: "'*'"
+      month: "'*'"
+      dayweek: "'*'"
+
 git:
   config:
       wicksy:
