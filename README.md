@@ -31,7 +31,7 @@ $ /usr/bin/sudo -H -u ansible /bin/bash -c "cd /srv/ansible && /usr/bin/ansible-
 
 The following section includes examples of Salt pillar data used by the states:
 
-* cron
+* cronjobs
 
 ```
 cronjobs:
@@ -151,7 +151,7 @@ vim:
 
 #### Ansible Variables
 
-The following section includes examples of Ansible variables used by the plays:
+The following section includes examples of Ansible variables used by the roles:
 
 * core_pkgs
 
@@ -173,6 +173,20 @@ core_pips:
   - boto3
   - docker-py==1.7.2
   - gitpython
+```
+
+* cronjobs
+
+```
+cronjobs:
+  testjob:
+    name: Test
+    state: present
+    hour: 06
+    minute: 11
+    day: '*'
+    user: wicksy
+    job: "date > /tmp/date.out"
 ```
 
 * gitconfig
