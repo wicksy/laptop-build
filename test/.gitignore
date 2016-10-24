@@ -1,0 +1,5 @@
+.cache
+.vagrant
+__pycache__
+ansibletest-sshkey
+salttest-sshkey
