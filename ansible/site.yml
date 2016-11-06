@@ -1,6 +1,7 @@
 - hosts:
     - ansible-test
     - dell-inspiron
+    - travis-ci
   remote_user: ansible
   become: true
   become_user: root
