@@ -1,0 +1,20 @@
+sudo: required
+dist: trusty
+language: python
+python:
+  - "2.7"
+
+before_install:
+  - sudo apt-add-repository -y ppa:ansible/ansible
+  - sudo apt-get -qq update
+  - sudo apt-get -y install curl ansible
+  - curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
+  - sudo bash bootstrap_salt.sh -d
+  - sudo mkdir -p /srv
+  - chmod 755 travis/build.sh
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - sudo travis/build.sh
