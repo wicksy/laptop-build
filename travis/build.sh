@@ -5,9 +5,9 @@
 
 # Exit on errors
 #
-#set -e
-#set -u
-#set -o pipefail
+set -e
+set -u
+set -o pipefail
 
 # Create Salt Links for States and Pillar
 # Create Ansible Links for Playbooks and Variables
