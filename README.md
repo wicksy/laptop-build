@@ -1,11 +1,19 @@
-## Salt, Ansible and Bash to help rebuild my laptops
+[![Build Status](https://travis-ci.org/wicksy/laptop-build.svg?branch=master)](https://travis-ci.org/wicksy/laptop-build) [![license](https://img.shields.io/badge/License-MIT-blue.svg?maxAge=2592000)](https://github.com/wicksy/laptop-build/blob/master/LICENSE.md)</br>
 
-#### Installation
+## Laptop Build Automation
+
+#### Overview
+
+Salt and Ansible used to configure a number of Linux laptops that I currently use.
+
+#### Tested Against
 
 Tested on the following:
 
 * Dell Inspiron running Ubuntu 15
 * Dell Inspiron running Ubuntu 14
+
+#### Installation
 
 * Obtain and run a copy of the following script to configure the wifi adapter:
 
