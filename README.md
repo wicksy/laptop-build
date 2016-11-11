@@ -4,6 +4,9 @@
 
 #### Overview
 
+![Saltstack logo](logos/saltstack.png "Saltstack")
+![Ansible logo](logos/ansible.png "Ansible")
+
 Salt and Ansible used to configure a number of Linux laptops that I currently use.
 
 #### Tested Against
