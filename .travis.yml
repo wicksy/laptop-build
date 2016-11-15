@@ -18,3 +18,4 @@ install:
 
 script:
   - sudo travis/build.sh
+  - sudo travis/test.sh $(which testinfra)
