@@ -12,6 +12,7 @@ before_install:
   - sudo bash bootstrap_salt.sh -d
   - sudo mkdir -p /srv
   - chmod 755 travis/build.sh
+  - chmod 755 travis/test.sh
 
 install:
   - pip install -r travis/requirements.txt
