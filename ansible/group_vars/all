@@ -1,6 +1,5 @@
 core_pkgs:
   - apt-file
-  - atsar
   - blktrace
   - chromium-browser
   - curl
