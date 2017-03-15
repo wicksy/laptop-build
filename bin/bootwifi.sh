@@ -7,8 +7,8 @@
 set -o pipefail
 set -e
 
-# Setup wifi on Ubuntu (create a /etc/network/interfaces.d file after establishing
-# SSID and wi-fi password)
+# Setup wifi on Ubuntu (create a /etc/wpa_supplicant.conf file after establishing
+# wifi interface, SSID and password)
 #
 setup_ubuntu() {
 
@@ -22,16 +22,24 @@ setup_ubuntu() {
           | /usr/bin/tr -d ' \t' \
           | /usr/bin/awk -F'=' '$1 == "psk" {print $2}')
 
-  cat > "/etc/network/interfaces.d/${devid}" <<EOF
-# Wireless interface
-auto ${devid}
-iface ${devid} inet dhcp
-  wpa-ssid ${ssid}
-  wpa-psk ${key}
+  cat > "/etc/wpa_supplicant.conf" <<EOF
+network={
+  ssid="${ssid}"
+  scan_ssid=1
+  proto=WPA
+  key_mgmt=WPA-PSK
+  psk=${key}
+}
 EOF
 
-  /bin/chmod 600 /etc/network/interfaces /etc/network/interfaces.d/*
-  echo "${white}==> (${host}) Updated /etc/network/interfaces.d/${devid}...."
+  /bin/chmod 600 /etc/wpa_supplicant.conf
+  echo "${white}==> (${host}) Updated /etc/wpa_supplicant.conf...."
+
+  echo "${white}==> (${host}) Starting wpa_supplicant on ${devid}...."
+  /sbin/wpa_supplicant -i "${devid}" -c /etc/wpa_supplicant.conf -B
+
+  echo "${white}==> (${host}) Starting dhclient on ${devid}...."
+  /sbin/dhclient -nw "${devid}"
 
 }
 
