@@ -7,8 +7,8 @@
 set -o pipefail
 set -e
 
-# Setup wifi on Ubuntu (create a /etc/wpa_supplicant.conf file after establishing
-# wifi interface, SSID and password)
+# Setup wifi on Ubuntu (create /etc/wpa_supplicant.conf and an /etc/network/interfaces.d/
+# file after establishing wifi interface, SSID and password)
 #
 setup_ubuntu() {
 
@@ -34,6 +34,17 @@ EOF
 
   /bin/chmod 600 /etc/wpa_supplicant.conf
   echo "${white}==> (${host}) Updated /etc/wpa_supplicant.conf...."
+
+cat > "/etc/network/interfaces.d/${devid}" <<EOF
+# Wireless interface
+auto ${devid}
+iface ${devid} inet dhcp
+    wpa-conf /etc/wpa_supplicant.conf
+}
+EOF
+
+  /bin/chmod 600 /etc/network/interfaces /etc/network/interfaces.d/*
+  echo "${white}==> (${host}) Updated /etc/network/interfaces.d/${devid}...."
 
   echo "${white}==> (${host}) Starting wpa_supplicant on ${devid}...."
   /sbin/wpa_supplicant -i "${devid}" -c /etc/wpa_supplicant.conf -B
