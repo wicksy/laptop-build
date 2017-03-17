@@ -1,5 +1,5 @@
-[dell-inspiron]
-Dell-Inspiron
+[localhost]
+localhost ansible_connection=local
 
 [ansible-test]
 ansible-test  ansible_ssh_host=192.168.168.3  ansible_ssh_private_key_file=/vagrant/.vagrant/machines/ansibletest/virtualbox/private_key  ansible_connection=local
