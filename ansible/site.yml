@@ -1,6 +1,6 @@
 - hosts:
     - ansible-test
-    - dell-inspiron
+    - localhost
     - travis-ci
   remote_user: ansible
   become: true
