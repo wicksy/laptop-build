@@ -1,0 +1,4 @@
+vim_plugins:
+  - dockerfile
+  - jinja
+  - puppet
