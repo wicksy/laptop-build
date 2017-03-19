@@ -4,3 +4,11 @@
     state: latest
   with_items:
     - "{{ core_pkgs | default([]) }}"
+
+- name: Install packages (specific to 14/15)
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - atsar
+  when: ansible_distribution_major_version == "14" or ansible_distribution_major_version == "15"
