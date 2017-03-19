@@ -1,6 +1,19 @@
+- name: Remove vim plugins
+  command: vim-addons --target-dir="{{ target }}" remove "{{ item }}"
+  with_items:
+    - "{{ vim_plugins }}"
+
 - name: Install vim plugins
   command: vim-addons --target-dir="{{ target }}" install "{{ item }}"
   with_items:
-    - dockerfile
-    - jinja
-    - puppet
+    - "{{ vim_plugins }}"
+
+- name: Vundle Vim Repo
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: "{{ target }}/bundle/Vundle.vim"
+    version: master
+    clone: yes
+    force: yes
+    update: yes
+
