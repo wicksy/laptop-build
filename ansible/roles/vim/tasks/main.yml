@@ -6,6 +6,13 @@
   loop_control:
     loop_var: outer_item
 
+- name: Install Vundle Plugins
+  command: vim +PluginInstall +qall
+
+- name: Install Vundle Plugins
+  command: vim +PluginInstall +qall
+  become_user: wicksy
+
 - name: Chown vim directories and files (wicksy)
   file:
     path: /home/wicksy/.vim
