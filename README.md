@@ -13,8 +13,10 @@ Salt and Ansible used to configure a number of Linux laptops that I currently us
 
 Tested on the following:
 
-* Dell Inspiron running Ubuntu 15
-* Dell Inspiron running Ubuntu 14
+* Dell Inspiron running Ubuntu 16.04 (tested with Ansible only)
+* Dell Inspiron running Ubuntu 15.10 (tested with Salt/Ansible)
+* Dell Inspiron running Ubuntu 14.04 (tested with Salt only)
+* Samsung Q45 running Ubuntu 14.04 (32-bit) (tested with Ansible only)
 
 #### Installation
 
@@ -35,7 +37,7 @@ $ /usr/bin/sudo salt-call --local -l debug state.highstate
 
 ```
 $ /usr/bin/curl -L https://raw.githubusercontent.com/wicksy/laptop-build/master/bin/ansible/bootstrap.sh | /usr/bin/sudo /bin/bash
-$ /usr/bin/sudo -H -u ansible /bin/bash -c "cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml -vv"
+$ /usr/bin/sudo -H -u ansible /usr/bin/ansible-playbook --limit localhost -i /srv/ansible/hosts /srv/ansible/site.yml -vv"
 ```
 
 #### Builds
