@@ -2,9 +2,10 @@
   file:
     path: "{{ item }}"
     state: directory
-    owner: root
-    group: root
+    owner: wicksy
+    group: wicksy
     mode: 0755
+    recurse: yes
   with_items:
     - /git
     - /git/wicksy
@@ -17,21 +18,9 @@
     clone: yes
     force: yes
     update: yes
+  become_user: wicksy
 
-- name: Links for root
-  file:
-    state: link
-    src: /git/wicksy/configfiles/dotfiles/{{ item }}
-    dest: /root/{{ item }}
-    owner: root
-    group: root
-    mode: 0644
-    force: yes
-  with_items:
-    - .bashrc
-    - .vimrc
-
-- name: Links for wicksy
+- name: Dotfiles Links
   file:
     state: link
     src: /git/wicksy/configfiles/dotfiles/{{ item }}
@@ -41,5 +30,8 @@
     mode: 0644
     force: yes
   with_items:
+    - .aws
     - .bashrc
+    - .config
+    - .ssh/config
     - .vimrc
