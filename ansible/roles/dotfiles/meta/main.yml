@@ -1,3 +1,4 @@
 dependencies:
   - { role: core_pkg }
   - { role: users }
+  - { role: sshkeys }
