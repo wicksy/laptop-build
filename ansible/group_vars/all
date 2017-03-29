@@ -4,6 +4,7 @@ core_pkgs:
   - chromium-browser
   - curl
   - diod
+  - fonts-font-awesome
   - git
   - gnupg
   - handbrake
@@ -30,6 +31,8 @@ core_pkgs:
   - wget
   - whois
   - x264
+  - xfce4-terminal
+  - xfonts-terminus
   - xinit
 
 core_pips:
