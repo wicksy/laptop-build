@@ -12,3 +12,12 @@
   with_items:
     - atsar
   when: ansible_distribution_major_version == "14" or ansible_distribution_major_version == "15"
+
+- name: Install packages (specific to 16)
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - fonts-powerline
+    - rofi
+  when: ansible_distribution_major_version == "16"
