@@ -1,0 +1,18 @@
+---
+
+- name: Remove standard Ubuntu home directories for {{ user }}
+  file:
+    path: "{{ homedir }}/{{ inner_item }}"
+    state: absent
+  with_items:
+    - .i3
+    - Desktop
+    - Documents
+    - Downloads
+    - Music
+    - Pictures
+    - Public
+    - Templates
+    - Videos
+  loop_control:
+    loop_var: inner_item
