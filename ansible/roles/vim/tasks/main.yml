@@ -1,13 +1,9 @@
 - name: Install vim plugins
   include: plugins.yml target={{ outer_item }}
   with_items:
-    - /root/.vim
     - /home/wicksy/.vim
   loop_control:
     loop_var: outer_item
-
-- name: Install Vundle Plugins
-  command: vim +PluginInstall +qall
 
 - name: Install Vundle Plugins
   command: vim +PluginInstall +qall
