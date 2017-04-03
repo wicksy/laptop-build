@@ -14,7 +14,6 @@
     - docker
     - dotfiles
     - entropy
-    - git
     - mounts
     - ntp
     - ssh
