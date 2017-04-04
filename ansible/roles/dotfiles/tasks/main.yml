@@ -33,5 +33,6 @@
     - .aws
     - .bashrc
     - .config
+    - .gitconfig
     - .ssh/config
     - .vimrc
