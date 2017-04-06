@@ -8,10 +8,14 @@ set -o pipefail
 set -e
 
 # Setup wifi on Ubuntu (create /etc/wpa_supplicant.conf and an /etc/network/interfaces.d/
-# file after establishing wifi interface, SSID and password)
+# file after establishing wifi interface, SSID and password). If Ubuntu 14 append to
+# /etc/network/interfaces as interfaces.d doesn't seem to work.
 #
 setup_ubuntu() {
 
+  urel="$(lsb_release -sr | cut -c1-2)"
+
+  echo "${white}==>  (${host}) Running on Ubuntu ${red}${urel}"
   echo "${yellow}==> (${host}) Enter wifi device:"
   read devid
   echo "${yellow}==> (${host}) Enter SSID:"
@@ -35,16 +39,20 @@ EOF
   /bin/chmod 600 /etc/wpa_supplicant.conf
   echo "${white}==> (${host}) Updated /etc/wpa_supplicant.conf...."
 
-cat > "/etc/network/interfaces.d/${devid}" <<EOF
+  if [[ "${urel}" == "14" ]] ; then
+    ifile="/etc/network/interfaces"
+  else
+    ifile="/etc/network/interfaces.d/${devid}"
+  fi
+
+  cat >> "${ifile}" <<EOF
 # Wireless interface
 auto ${devid}
 iface ${devid} inet dhcp
     wpa-conf /etc/wpa_supplicant.conf
-}
 EOF
 
-  /bin/chmod 600 /etc/network/interfaces /etc/network/interfaces.d/*
-  echo "${white}==> (${host}) Updated /etc/network/interfaces.d/${devid}...."
+  echo "${white}==> (${host}) Updated ${ifile}...."
 
   echo "${white}==> (${host}) Starting wpa_supplicant on ${devid}...."
   /sbin/wpa_supplicant -i "${devid}" -c /etc/wpa_supplicant.conf -B
