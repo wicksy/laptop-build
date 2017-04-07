@@ -11,6 +11,7 @@ import pytest
   ("curl"),
   ("diod"),
   ("docker-engine"),
+  ("fonts-font-awesome"),
   ("git"),
   ("gnupg"),
   ("handbrake"),
@@ -30,6 +31,7 @@ import pytest
   ("openssl"),
   ("python"),
   ("python-pip"),
+  ("suckless-tools"),
   ("sysstat"),
   ("tree"),
   ("vagrant"),
@@ -42,6 +44,8 @@ import pytest
   ("wget"),
   ("whois"),
   ("x264"),
+  ("xfce4-terminal"),
+  ("xfonts-terminus"),
   ("xinit"),
 ])
 
