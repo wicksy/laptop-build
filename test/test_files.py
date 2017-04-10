@@ -2,9 +2,9 @@ import pytest
 
 @pytest.mark.parametrize("name, user, group, mode, contains", [
   ("/etc/apt/sources.list.d/docker.list", "root", "root", "0644", "https://apt.dockerproject.org/repo"),
-  ("/git", "root", "root", "0755", "null"),
-  ("/git/wicksy", "root", "root", "0755", "null"),
-  ("/git/wicksy/configfiles", "root", "root", "0755", "null"),
+  ("/git", "wicksy", "wicksy", "0755", "null"),
+  ("/git/wicksy", "wicksy", "wicksy", "0755", "null"),
+  ("/git/wicksy/configfiles", "wicksy", "wicksy", "0755", "null"),
   ("/mnt/buffalo", "root", "root", "0755", "null"),
   ("/mnt/samsung", "root", "root", "0755", "null"),
   ("/mnt/ds415plus", "root", "root", "0755", "null"),
@@ -20,6 +20,11 @@ import pytest
   ("/home/wicksy/.vim/syntax/dockerfile.vim", "wicksy", "wicksy", "0777", "dockerfile.vim"),
   ("/home/wicksy/.bashrc", "wicksy", "wicksy", "0777", "function _show_git_status"),
   ("/home/wicksy/.gitconfig", "wicksy", "wicksy", "0644", "name = Martin Wicks"),
+  ("/home/wicksy/.aws/config", "wicksy", "wicksy", "0644", "region = eu-west-1"),
+  ("/home/wicksy/.config/font/config", "wicksy", "wicksy", "0644", "Terminus"),
+  ("/home/wicksy/.config/i3/config", "wicksy", "wicksy", "0644", "xfce4-terminal"),
+  ("/home/wicksy/.config/xfce4/terminal/terminalrc", "wicksy", "wicksy", "0644", "FontName=Terminus 9"),
+  ("/home/wicksy/.ssh/config", "wicksy", "wicksy", "0777", "ServerAliveInterval 60"),
 ])
 
 def test_files(File, name, user, group, mode, contains):
