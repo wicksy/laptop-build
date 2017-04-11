@@ -53,7 +53,7 @@ pip install testinfra paramiko
 #
 vagrant up "${vagrant}" --provision \
   && vagrant ssh-config "${vagrant}" > "${vagrant}"-sshkey \
-  && testinfra -v --hosts="${vagrant}" --ssh-config="${vagrant}"-sshkey ${tests}
+  && testinfra -v --sudo --sudo-user=root --hosts="${vagrant}" --ssh-config="${vagrant}"-sshkey ${tests}
 
 # Exit from the virtual environment and clean it up
 #
