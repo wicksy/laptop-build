@@ -31,6 +31,7 @@ core_pkgs:
   - vlc
   - wget
   - whois
+  - x11-xserver-utils
   - x264
   - xfce4-terminal
   - xfonts-terminus
