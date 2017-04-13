@@ -37,7 +37,7 @@ $ /usr/bin/sudo salt-call --local -l debug state.highstate
 
 ```
 $ /usr/bin/curl -L https://raw.githubusercontent.com/wicksy/laptop-build/master/bin/ansible/bootstrap.sh | /usr/bin/sudo /bin/bash
-$ /usr/bin/sudo -H -u ansible /usr/bin/ansible-playbook --limit localhost -i /srv/ansible/hosts /srv/ansible/site.yml -vv"
+$ /usr/bin/sudo -H -u ansible /bin/bash -c "cd /srv/ansible && /usr/bin/ansible-playbook --limit localhost -i /srv/ansible/hosts /srv/ansible/site.yml -vv"
 ```
 
 #### Builds
@@ -240,17 +240,6 @@ cronjobs:
     day: '*'
     user: wicksy
     job: "date > /tmp/date.out"
-```
-
-* gitconfig
-
-```
-gitconfig:
-  user:
-    email: bob@gmail.com
-    name: Bob Smith
-  core:
-    editor: vim
 ```
 
 * ntp
