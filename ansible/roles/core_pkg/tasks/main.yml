@@ -1,3 +1,6 @@
+- name: Update apt indexes
+  command: apt-get update
+
 - name: Install packages
   package:
     name: "{{ item }}"
