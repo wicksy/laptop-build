@@ -1,7 +1,7 @@
 import pytest
 
 @pytest.mark.parametrize("name, user, group, mode, contains", [
-  ("/etc/apt/sources.list.d/docker.list", "root", "root", "0644", "https://apt.dockerproject.org/repo"),
+  ("/etc/apt/sources.list.d/docker.list", "root", "root", "0644", "https://download.docker.com/linux/ubuntu/"),
   ("/git", "wicksy", "wicksy", "0755", "null"),
   ("/git/wicksy", "wicksy", "wicksy", "0755", "null"),
   ("/git/wicksy/configfiles", "wicksy", "wicksy", "0755", "null"),
@@ -19,7 +19,6 @@ import pytest
   ("/home/wicksy/.vim/syntax/puppet.vim", "wicksy", "wicksy", "0777", "puppet.vim"),
   ("/home/wicksy/.vim/syntax/dockerfile.vim", "wicksy", "wicksy", "0777", "dockerfile.vim"),
   ("/home/wicksy/.bashrc", "wicksy", "wicksy", "0777", "function _show_git_status"),
-  ("/home/wicksy/.gitconfig", "wicksy", "wicksy", "0644", "name = Martin Wicks"),
   ("/home/wicksy/.aws/config", "wicksy", "wicksy", "0644", "region = eu-west-1"),
   ("/home/wicksy/.config/font/config", "wicksy", "wicksy", "0644", "Terminus"),
   ("/home/wicksy/.config/i3/config", "wicksy", "wicksy", "0644", "xfce4-terminal"),
