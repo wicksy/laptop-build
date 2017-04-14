@@ -1,26 +1,40 @@
-- name: Install Docker Key
-  apt_key:
-    keyserver: hkp://p80.pool.sks-keyservers.net:80
-    id: 58118E89F3A912897C070ADBF76221572C52609D
-    state: present
+- block:
 
-- name: Install Docker Repo
-  apt_repository:
-    repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main"
-    filename: /etc/apt/sources.list.d/docker
-    state: present
+  - name: Install Docker Key
+    shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-- name: Install Docker Packages
-  package:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - apt-transport-https
-    - ca-certificates
-    - docker-engine
+  - name: Install Docker Repo
+    apt_repository:
+      repo: "deb https://download.docker.com/linux/ubuntu/ {{ ansible_distribution_release }} stable"
+      filename: /etc/apt/sources.list.d/docker
+      state: present
 
-- name: Docker Service
-  service:
-    name: docker
-    state: started
-    enabled: yes
+  - name: Update apt indexes
+    command: apt-get update
+
+  - name: Install Docker Packages
+    package:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+      - software-properties-common
+      - docker-ce
+
+  - name: Docker Service
+    service:
+      name: docker
+      state: started
+      enabled: yes
+
+  when: ansible_architecture == "x86_64"
+
+- block:
+
+  - name: Install 32-bit docker
+    package:
+      name: docker.io
+      state: latest
+
+  when: ansible_architecture == "i386"
