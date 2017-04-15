@@ -100,23 +100,6 @@ cronjobs:
       dayweek: "'*'"
 ```
 
-* git
-
-```
-git:
-  config:
-      bob:
-        user.email:
-          value: bob@gmail.com
-          global: True
-        user.name:
-          value: Bob Smith
-          global: True
-        core.editor:
-          value: vim
-          global: True
-```
-
 * ntp
 
 ```
