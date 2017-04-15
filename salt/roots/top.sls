@@ -4,7 +4,6 @@ base:
     - docker
     - dotfiles
     - entropy
-    - git
     - mounts
     - ntp
     - pip
