@@ -10,37 +10,12 @@ cronjobs:
       month: "'*'"
       dayweek: "'*'"
 
-git:
-  config:
-      wicksy:
-        user.email:
-          value: wicksy@wicksy.com
-          global: True
-        user.name:
-          value: Martin Wicks
-          global: True
-        core.editor:
-          value: vim
-          global: True
-      root:
-        user.email:
-          value: wicksy@wicksy.com
-          global: True
-        user.name:
-          value: Martin Wicks
-          global: True
-        core.editor:
-          value: vim
-          global: True
-
-
 ntp:
   servers:
     - 0.pool.ntp.org
     - 1.pool.ntp.org
     - 2.pool.ntp.org
     - 3.pool.ntp.org
-
 
 pip:
   installed:
@@ -54,15 +29,14 @@ pip:
     - virtualenv
     - virtualenvwrapper
 
-
 pkg:
   installed:
     - apt-file
-    - atsar
     - blktrace
     - chromium-browser
     - curl
     - diod
+    - fonts-font-awesome
     - git
     - gnupg
     - handbrake
@@ -77,6 +51,7 @@ pkg:
     - openssl
     - python
     - python-pip
+    - suckless-tools
     - sysstat
     - tree
     - vagrant
@@ -88,9 +63,18 @@ pkg:
     - vlc
     - wget
     - whois
+    - x11-xserver-utils
     - x264
+    - xfce4-terminal
+    - xfonts-terminus
     - xinit
-
+{% if grains['osmajorrelease'] in ['14', '15'] %}
+    - atsar
+{% endif %}
+{% if grains['osmajorrelease'] in ['16'] %}
+    - fonts-powerline
+    - rofi
+{% endif %}
 
 sshd_config:
   Port: 22
@@ -125,14 +109,12 @@ sshd_config:
   Subsystem: sftp /usr/lib/openssh/sftp-server
   UsePAM: yes
 
-
 sshkeys:
   wicksy:
     present: True
     enc: ssh-rsa
     key: AAAAB3NzaC1yc2EAAAABIwAAAQEAnEIpXFliJ8TUvNEYRD7yrE1XbI/h5SFNvC+adOJ3rmwyFncUwQU4OUDMCqq45vc4mei6LzuO1bUH7sQkZaD+0QX5f6KvJlDkWIJaRlB7/rQxBr01incMyEzo1Xxsmarz4wv2IiROy7KnKP4VaDvFScUF8c/DyaStyj2BeV32rLiIwFI2l9LOHSy94sT9Bj5Ef+uTtGeO5ptWW89i/bo/IaB6ah7Hkk+NC8OplPJieEdzIkODLXZvwTon6NkcADIncrRA/8vpc3GxoCmyHdNPZp/facgHv9a7up2vXvEa6QWdLQwQqHDhsSOR2a9TxRTGKclrRsfBdXPd+i5dI+uC/Q==
     comment: MacBookPro
-
 
 users:
   wicksy:
@@ -143,7 +125,6 @@ users:
     shell: /bin/bash
     groups:
       - sudo
-
 
 vim:
   plugins:
