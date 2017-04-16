@@ -1,7 +1,7 @@
 dotfiles-directory:
   file.directory:
-    - user: root
-    - group: root
+    - user: wicksy
+    - group: wicksy
     - mode: 755
     - makedirs: True
     - recurse:
@@ -15,20 +15,17 @@ dotfiles-github:
   git.latest:
     - name: https://github.com/wicksy/configfiles.git
     - branch: master
-    - user: root
+    - user: wicksy
     - target: /git/wicksy/configfiles
     - require:
       - file: dotfiles-directory
+      - sls: sshkeys
 
-{%- for user in ['root','wicksy'] %}
-  {%- for file in ['.vimrc', '.bashrc'] %}
+{%- for user in ['wicksy'] %}
+  {%- for file in ['.aws', '.bashrc', '.config', '.gitconfig', '.ssh/config', '.vimrc'] %}
 dotfiles-{{ user }}-{{ file }}-link:
   file.symlink:
-    {%- if user == "root" %}
-    - name: /{{ user }}/{{ file }}
-    {%- else %}
     - name: /home/{{ user }}/{{ file }}
-    {%- endif %}
     - target: /git/wicksy/configfiles/dotfiles/{{ file }}
     - force: True
     - user: wicksy
@@ -37,16 +34,4 @@ dotfiles-{{ user }}-{{ file }}-link:
     - require:
       - sls: users
   {% endfor %}
-vim-{{ user }}-directory:
-  file.directory:
-  {%- if user == "root" %}
-    - name: /{{ user }}/.vim
-  {%- else %}
-    - name: /home/{{ user }}/.vim
-  {%- endif %}
-    - user: {{ user }}
-    - group: {{ user }}
-    - mode: 755
-    - require:
-      - sls: users
 {% endfor %}
