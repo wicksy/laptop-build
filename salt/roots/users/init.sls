@@ -14,5 +14,16 @@ users-{{ user }}-managed:
   user.absent:
     - name: {{ user }}
     {%- endif %}
+users-{{ user }}-lockhome:
+  file.directory:
+    - name: {{ config['home'] }}
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 750
+    {%- for removedir in ['.i3', 'Desktop', 'Documents', 'Downloads', 'Music', 'Pictures', 'Public', 'Templates', 'Videos'] %}
+users-{{ user }}-remove-{{ removedir }}:
+  file.absent:
+    - name: {{ config['home'] }}/{{ removedir }}
+    {% endfor %}
   {% endfor %}
 {%- endif %}
