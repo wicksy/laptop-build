@@ -1,12 +1,14 @@
+docker-key:
+  cmd.run:
+    - name: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
 docker-repo:
   pkgrepo.managed:
     - humanname: Docker Project
-    - name: deb https://apt.dockerproject.org/repo ubuntu-{{ grains['oscodename'] }} main
-    - dist: ubuntu-{{ grains['oscodename'] }}
+    - name: deb https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
+    - dist: {{ grains['oscodename'] }}
     - file: /etc/apt/sources.list.d/docker.list
     - gpgcheck: 1
-    - keyid: 58118E89F3A912897C070ADBF76221572C52609D
-    - keyserver: hkp://p80.pool.sks-keyservers.net:80
     - require_in:
       - pkg: docker-pkg
 
@@ -15,9 +17,11 @@ docker-pkg:
     - pkgs:
       - apt-transport-https
       - ca-certificates
-      - docker-engine
+      - software-properties-common
+      - docker-ce
     - require:
       - pkgrepo: docker-repo
+      - cmd: docker-key
       - sls: pip
       - sls: pkg
 
