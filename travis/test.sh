@@ -5,9 +5,9 @@
 
 # Exit on errors
 #
-#set -e
-#set -u
-#set -o pipefail
+set -e
+set -u
+set -o pipefail
 
 # Pick up path to testinfra passed in
 #

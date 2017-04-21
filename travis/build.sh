@@ -5,9 +5,9 @@
 
 # Exit on errors
 #
-#set -e
-#set -u
-#set -o pipefail
+set -e
+set -u
+set -o pipefail
 
 # Create Salt Links for States and Pillar
 # Create Ansible Links for Playbooks and Variables
@@ -19,7 +19,7 @@ ln -sf "$(pwd)/ansible" /srv/ansible
 
 # Apply Salt States
 #
-salt-call --local -l debug state.apply
+salt-call --local -l info state.apply
 
 # Apply Ansible Plays
 #
