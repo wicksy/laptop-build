@@ -19,7 +19,7 @@ ln -sf "$(pwd)/ansible" /srv/ansible
 
 # Apply Salt States
 #
-salt-call --local -l info state.apply
+salt-call --local -l debug state.apply
 
 # Apply Ansible Plays
 #
