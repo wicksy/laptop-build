@@ -19,10 +19,10 @@ ln -sf "$(pwd)/ansible" /srv/ansible
 
 # Apply Salt States
 #
-salt-call --local -l debug state.apply
+salt-call --local -l info state.apply
 
 # Apply Ansible Plays
 #
-cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml -vv --limit=travis-ci
+cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml --limit=travis-ci
 
 exit 0
