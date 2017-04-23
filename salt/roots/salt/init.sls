@@ -24,15 +24,13 @@ salt-directories:
       - user
       - group
     - names:
-      - /git
-      - /git/wicksy
       - /srv/formulas
 
 salt-github:
   git.latest:
     - name: https://github.com/wicksy/laptop-build.git
     - branch: master
-    - user: root
+    - user: wicksy
     - target: /git/wicksy/laptop-build
     - require:
       - file: salt-directories
