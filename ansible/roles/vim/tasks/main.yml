@@ -1,9 +1,12 @@
-- name: Install vim plugins
-  include: plugins.yml target={{ outer_item }}
-  with_items:
-    - /home/wicksy/.vim
-  loop_control:
-    loop_var: outer_item
+- name: Vundle Vim Repo
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: "/home/wicksy/.vim/bundle/Vundle.vim"
+    version: master
+    clone: yes
+    force: yes
+    update: yes
+  become_user: wicksy
 
 - name: Install Vundle Plugins
   command: vim +PluginInstall +qall
