@@ -24,9 +24,6 @@ core_pkgs:
   - tree
   - vagrant
   - vim
-  - vim-addon-manager
-  - vim-puppet
-  - vim-syntax-docker
   - virtualbox
   - vlc
   - wget
