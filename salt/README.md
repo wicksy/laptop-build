@@ -92,13 +92,3 @@ users:
       - nginx
       - root
 ```
-
-* vim
-
-```
-vim:
-  plugins:
-    - dockerfile
-    - jinja
-    - puppet
-```
