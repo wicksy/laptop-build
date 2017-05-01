@@ -1,22 +1,4 @@
-{%- if salt['pillar.get']('vim:plugins') %}
-  {%- for user in ['wicksy'] %}
-    {%- for plugin in salt['pillar.get']('vim:plugins') %}
-vim-{{ user }}-remove-{{ plugin }}:
-  cmd.run:
-    - name: vim-addons remove {{ plugin }}
-    - runas: {{ user }}
-    - require:
-      - sls: pkg
-      - sls: users
-vim-{{ user }}-install-{{ plugin }}:
-  cmd.run:
-    - name: vim-addons install {{ plugin }}
-    - runas: {{ user }}
-    - require:
-      - sls: pkg
-      - sls: users
-
-    {% endfor %}
+{%- for user in ['wicksy'] %}
 
 vim-{{ user }}-vundle-repo:
   git.latest:
@@ -45,5 +27,4 @@ vim-{{ user }}-chown:
     - names:
       - /home/{{ user }}/.vim
 
-  {% endfor %}
-{% endif %}
+{% endfor %}
