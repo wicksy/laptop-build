@@ -56,9 +56,6 @@ pkg:
     - tree
     - vagrant
     - vim
-    - vim-addon-manager
-    - vim-puppet
-    - vim-syntax-docker
     - virtualbox
     - vlc
     - wget
@@ -125,10 +122,5 @@ users:
     shell: /bin/bash
     groups:
       - sudo
-
-vim:
-  plugins:
-    - dockerfile
-    - jinja
-    - puppet
+      - docker
 
