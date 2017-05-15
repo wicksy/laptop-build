@@ -1,3 +1,14 @@
+- name: Add repository for atom
+  apt_repository:
+    repo: "deb http://ppa.launchpad.net/webupd8team/atom/ubuntu {{ ansible_distribution_release }} main"
+    state: present
+
+- name: Add key for atom repository
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: EEA14886
+    state: present
+
 - name: Update apt indexes
   command: apt-get update
 
