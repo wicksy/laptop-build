@@ -1,5 +1,6 @@
 core_pkgs:
   - apt-file
+  - atom
   - blktrace
   - chromium-browser
   - curl
