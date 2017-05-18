@@ -1,5 +1,6 @@
 base:
   '*':
+    - atom
     - cron
     - docker
     - dotfiles
