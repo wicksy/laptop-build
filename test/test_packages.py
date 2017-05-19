@@ -3,6 +3,7 @@ import pytest
 @pytest.mark.parametrize("name", [
   ("apt-file"),
   ("apt-transport-https"),
+  ("atom"),
   ("blktrace"),
   ("ca-certificates"),
   ("chromium-browser"),
