@@ -2,6 +2,7 @@ import pytest
 
 @pytest.mark.parametrize("name, user, group, mode, contains", [
   ("/etc/apt/sources.list.d/docker.list", "root", "root", "0644", "https://download.docker.com/linux/ubuntu"),
+  ("/etc/apt/sources.list.d/ppa_launchpad_net_webupd8team_atom_ubuntu.list", "root", "root", "0644", "http://ppa.launchpad.net/webupd8team/atom/ubuntu"),
   ("/git", "wicksy", "wicksy", "0755", "null"),
   ("/git/wicksy", "wicksy", "wicksy", "0755", "null"),
   ("/git/wicksy/configfiles", "wicksy", "wicksy", "0755", "null"),
