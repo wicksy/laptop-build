@@ -5,7 +5,7 @@
 
 /usr/bin/apt-add-repository -y ppa:ansible/ansible
 /usr/bin/apt-get update
-/usr/bin/apt-get -y install laptop-mode-tools python python-pip git software-properties-common ansible sudo
+/usr/bin/apt-get -y install laptop-mode-tools python python3 python-pip python3-pip git software-properties-common ansible sudo
 mkdir -p /git/wicksy /srv
 cd /git/wicksy && /usr/bin/git clone https://github.com/wicksy/laptop-build.git
 /bin/ln -sf /git/wicksy/laptop-build/ansible /srv/ansible
