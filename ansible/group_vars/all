@@ -5,6 +5,7 @@ core_pkgs:
   - chromium-browser
   - curl
   - diod
+  - firewalld
   - fonts-font-awesome
   - git
   - gnupg
