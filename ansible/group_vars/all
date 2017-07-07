@@ -20,7 +20,9 @@ core_pkgs:
   - ntop
   - openssl
   - python
+  - python3
   - python-pip
+  - python3-pip
   - suckless-tools
   - sysstat
   - tree
