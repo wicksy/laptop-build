@@ -1,0 +1,25 @@
+- name: Enable and start firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: Add firewalld enable rules
+  firewalld:
+    zone: public
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: enabled
+  with_items:
+    - "{{ firewalld.enable }}"
+
+- name: Add firewalld disable rules
+  firewalld:
+    zone: public
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: disabled
+  with_items:
+    - "{{ firewalld.disable }}"
