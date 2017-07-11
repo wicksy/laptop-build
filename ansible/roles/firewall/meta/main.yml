@@ -1,0 +1,3 @@
+dependencies:
+  - { role: core_pkg }
+  - { role: core_pip }
