@@ -76,3 +76,5 @@ cronjobs:
 firewalld:
   enable:
     - ssh
+  disable:
+    - dhcpv6-client
