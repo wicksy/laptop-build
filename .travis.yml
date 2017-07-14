@@ -15,8 +15,7 @@ before_install:
   - chmod 755 travis/test.sh
 
 install:
-  - pip2 install -r travis/requirements.txt
-  - pip3 install -r travis/requirements.txt
+  - pip install -r travis/requirements.txt
 
 script:
   - sudo travis/build.sh
