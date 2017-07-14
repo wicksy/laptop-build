@@ -4,22 +4,26 @@
     state: started
     enabled: yes
 
-- name: Add firewalld enable rules
-  firewalld:
-    zone: public
-    service: "{{ item }}"
-    permanent: true
-    immediate: true
-    state: enabled
-  with_items:
-    - "{{ firewalld.enable }}"
+- block:
 
-- name: Add firewalld disable rules
-  firewalld:
-    zone: public
-    service: "{{ item }}"
-    permanent: true
-    immediate: true
-    state: disabled
-  with_items:
-    - "{{ firewalld.disable }}"
+  - name: Add firewalld enable rules
+    firewalld:
+      zone: public
+      service: "{{ item }}"
+      permanent: true
+      immediate: true
+      state: enabled
+    with_items:
+      - "{{ firewalld.enable }}"
+
+  - name: Add firewalld disable rules
+    firewalld:
+      zone: public
+      service: "{{ item }}"
+      permanent: true
+      immediate: true
+      state: disabled
+    with_items:
+      - "{{ firewalld.disable }}"
+
+  when: ansible_distribution_major_version != "14"
