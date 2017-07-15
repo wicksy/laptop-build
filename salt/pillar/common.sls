@@ -39,6 +39,8 @@ pkg:
     - fonts-font-awesome
     - git
     - gnupg
+    - gnupg2
+    - gnupg-agent
     - handbrake
     - handbrake-cli
     - htop
