@@ -3,6 +3,7 @@ import pytest
 @pytest.mark.parametrize("name, enabled, running", [
   ("cron", "enabled", "running"),
   ("docker", "enabled", "running"),
+  ("firewalld", "enabled", "running"),
   ("haveged", "enabled", "running"),
   ("ssh", "enabled", "running"),
 ])
