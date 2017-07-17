@@ -10,6 +10,9 @@ cronjobs:
       month: "'*'"
       dayweek: "'*'"
 
+firewall:
+  - ssh
+
 ntp:
   servers:
     - 0.pool.ntp.org
