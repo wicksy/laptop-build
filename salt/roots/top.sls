@@ -5,6 +5,7 @@ base:
     - docker
     - dotfiles
     - entropy
+    - firewall
     - mounts
     - ntp
     - pip
