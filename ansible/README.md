@@ -38,6 +38,18 @@ cronjobs:
     job: "date > /tmp/date.out"
 ```
 
+* firewalld
+
+```
+firewalld:
+  enable:
+    - ssh
+    - https
+  disable:
+    - dhcpv6-client
+    - http
+```
+
 * ntp
 
 ```

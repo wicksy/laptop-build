@@ -18,6 +18,14 @@ cronjobs:
       dayweek: "'*'"
 ```
 
+* firewall
+
+```
+firewall:
+  - ssh
+  - https
+```
+
 * ntp
 
 ```
