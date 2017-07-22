@@ -54,8 +54,10 @@ pkg:
     - nfs-common
     - ntop
     - openssl
+    - pinta
     - python
     - python-pip
+    - scrot
     - suckless-tools
     - sysstat
     - tree
