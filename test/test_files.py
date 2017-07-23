@@ -32,12 +32,13 @@ import pytest
   ("/home/wicksy/.ssh/config", "wicksy", "wicksy", "0777", "ServerAliveInterval 60"),
 ])
 
-def test_files(File, name, user, group, mode, contains):
-  assert File(name).exists
-  assert File(name).user == user
-  assert File(name).group == group
-  assert oct(File(name).mode) == mode
-  if File(name).is_directory is not True:
-    assert File(name).contains(contains)
+def test_files(host, name, user, group, mode, contains):
+  file = host.file(name)
+  assert file.exists
+  assert file.user == user
+  assert file.group == group
+  assert oct(file.mode) == mode
+  if file.is_directory is not True:
+    assert file.contains(contains)
   else:
-    assert File(name).is_directory
+    assert file.is_directory
