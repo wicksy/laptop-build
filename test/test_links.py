@@ -10,7 +10,8 @@ import pytest
   ("/home/wicksy/.ssh/config", "/git/wicksy/configfiles/dotfiles/.ssh/config"),
 ])
 
-def test_links(File, name, linked_to):
-  assert File(name).exists
-  assert File(name).is_symlink
-  assert File(name).linked_to == str(linked_to)
+def test_links(host, name, linked_to):
+  file = host.file(name)
+  assert file.exists
+  assert file.is_symlink
+  assert file.linked_to == str(linked_to)
