@@ -3,10 +3,17 @@
     name: gnupg
     state: latest
 
-- name: Add repository for atom
+- name: Add repository for atom (64bit)
   apt_repository:
-    repo: "deb http://ppa.launchpad.net/webupd8team/atom/ubuntu {{ ansible_distribution_release }} main"
+    repo: "deb [arch=amd64] http://ppa.launchpad.net/webupd8team/atom/ubuntu {{ ansible_distribution_release }} main"
     state: present
+  when: ansible_architecture == "x86_64"
+
+- name: Add repository for atom (32bit)
+  apt_repository:
+    repo: "deb [arch=i386] http://ppa.launchpad.net/webupd8team/atom/ubuntu {{ ansible_distribution_release }} main"
+    state: present
+  when: ansible_architecture == "i386"
 
 - name: Add key for atom repository
   apt_key:
