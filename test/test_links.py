@@ -8,6 +8,7 @@ import pytest
   ("/home/wicksy/.config", "/git/wicksy/configfiles/dotfiles/.config"),
   ("/home/wicksy/.gitconfig", "/git/wicksy/configfiles/dotfiles/.gitconfig"),
   ("/home/wicksy/.ssh/config", "/git/wicksy/configfiles/dotfiles/.ssh/config"),
+  ("/usr/local/bin/git-semver", "/git/wicksy/git-semver/git-semver.sh"),
 ])
 
 def test_links(host, name, linked_to):

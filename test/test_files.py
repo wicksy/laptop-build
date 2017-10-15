@@ -6,6 +6,7 @@ import pytest
   ("/git", "wicksy", "wicksy", "0755", "null"),
   ("/git/wicksy", "wicksy", "wicksy", "0755", "null"),
   ("/git/wicksy/configfiles", "wicksy", "wicksy", "0755", "null"),
+  ("/git/wicksy/git-semver", "wicksy", "wicksy", "0755", "null"),
   ("/mnt/buffalo", "root", "root", "0755", "null"),
   ("/mnt/samsung", "root", "root", "0755", "null"),
   ("/mnt/ds415plus", "root", "root", "0755", "null"),
@@ -30,6 +31,8 @@ import pytest
   ("/home/wicksy/.config/i3/config", "wicksy", "wicksy", "0644", "xfce4-terminal"),
   ("/home/wicksy/.config/xfce4/terminal/terminalrc", "wicksy", "wicksy", "0644", "FontName=Terminus 9"),
   ("/home/wicksy/.ssh/config", "wicksy", "wicksy", "0777", "ServerAliveInterval 60"),
+  ("/home/wicksy/.git-semver", "wicksy", "wicksy", "0755", "null"),
+  ("/home/wicksy/.git-semver/config", "wicksy", "wicksy", "0644", "UPDATE_CHECK"),
 ])
 
 def test_files(host, name, user, group, mode, contains):
