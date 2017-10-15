@@ -6,6 +6,7 @@ base:
     - dotfiles
     - entropy
     - firewall
+    - gitsemver
     - mounts
     - ntp
     - pip
