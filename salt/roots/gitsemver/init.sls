@@ -15,7 +15,7 @@ gitsemver-install:
     - runas: root
     - unless: test -f /usr/local/bin/git-semver
 
-gitsemver-config:
+gitsemver-directory:
   file.directory:
     - name: /home/wicksy/.git-semver
     - user: wicksy
@@ -25,4 +25,14 @@ gitsemver-config:
       - user
       - group
     - require:
-        - git: gitsemver-github
+        - cmd: gitsemver-install
+
+gitsemver-config:
+  file.managed:
+    - name: /home/wicksy/.git-semver/config
+    - source: /root/.git-semver/config
+    - user: wicksy
+    - group: wicksy
+    - mode: 644
+    - require:
+        - cmd: gitsemver-install
