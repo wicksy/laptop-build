@@ -1,0 +1,49 @@
+- name: Git repository for git-semver
+  git:
+    repo: https://github.com/markchalloner/git-semver.git
+    dest: /git/wicksy/git-semver
+    version: master
+    clone: yes
+    force: yes
+    update: yes
+  become_user: wicksy
+
+- name: Install git-semver
+  shell: cd /git/wicksy/git-semver/ && ./install.sh
+  creates: /usr/local/bin/git-semver
+
+- name: Create git-semver config directory
+  file:
+    path: /home/wicksy/.git-semver
+    state: directory
+    owner: wicksy
+    group: wicksy
+    mode: 0755
+
+- name: Config file for git-semver (16 or later)
+  copy:
+    src: /root/.git-semver/config
+    dest: /home/wicksy/.git-semver/config
+    remote_src: yes
+    owner: wicksy
+    group: wicksy
+    mode: 0644
+  when: ansible_distribution_major_version|int >= 16
+
+# Use a command (copy) for Python < 3.5 (see https://github.com/ansible/ansible/issues/25547)
+
+- block:
+
+  - name: Config file for git-semver (earlier than 16)
+    command: cp /root/.git-semver/config /home/wicksy/.git-semver/config
+    creates: /home/wicksy/.git-semver/config
+
+  - name: Set permissions, owner and group on config
+    file:
+      path: /home/wicksy/.git-semver/config
+      state: file
+      owner: wicksy
+      group: wicksy
+      mode: 0644
+
+  when: ansible_distribution_major_version|int < 16
