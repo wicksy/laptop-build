@@ -7,6 +7,7 @@ base:
     - entropy
     - firewall
     - gitsemver
+    - gpg
     - mounts
     - ntp
     - pip
