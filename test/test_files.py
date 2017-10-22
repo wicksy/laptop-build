@@ -33,6 +33,7 @@ import pytest
   ("/home/wicksy/.ssh/config", "wicksy", "wicksy", "0777", "ServerAliveInterval 60"),
   ("/home/wicksy/.git-semver", "wicksy", "wicksy", "0755", "null"),
   ("/home/wicksy/.git-semver/config", "wicksy", "wicksy", "0644", "UPDATE_CHECK"),
+  ("/home/wicksy/.gnupg", "wicksy", "wicksy", "0700", "null"),
 ])
 
 def test_files(host, name, user, group, mode, contains):
