@@ -10,7 +10,8 @@
 
 - name: Install git-semver
   shell: cd /git/wicksy/git-semver/ && ./install.sh
-  creates: /usr/local/bin/git-semver
+  args:
+    creates: /usr/local/bin/git-semver
 
 - name: Create git-semver config directory
   file:
@@ -36,7 +37,8 @@
 
   - name: Config file for git-semver (earlier than 16)
     command: cp /root/.git-semver/config /home/wicksy/.git-semver/config
-    creates: /home/wicksy/.git-semver/config
+    args:
+      creates: /home/wicksy/.git-semver/config
 
   - name: Set permissions, owner and group on config
     file:
