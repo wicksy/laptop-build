@@ -27,6 +27,17 @@ Does not work with the following:
 
 * Ubuntu 14.04 32-bit (Salt does not bootstrap - even older versions back to 0.15.0)
 
+Currently testing with Ansible 2.4.0.0.
+
+#### Pre Installation
+
+If using this automation for your own laptop setup you might want to do the following prior to running Salt/Ansible:
+
+* Change `users` Salt pillar/Ansible group vars dictionary to make your userid with your user details (including your password hash)
+* Change `sshkeys` Salt pillar/Ansible group vars dictionary to install your public SSH key in your authorized keys file
+* Change `wicksy` to your userid in any Salt state files/Ansible playbooks
+* Change `gpg.batch` Salt/Ansible templates to set your own user details including passphrase on your gpg keys (you can change it afterwards as well)
+
 #### Installation
 
 * Obtain and run a copy of the following script to configure the wifi adapter:
@@ -48,6 +59,12 @@ $ /usr/bin/sudo salt-call --local -l debug state.highstate
 $ /usr/bin/curl -L https://raw.githubusercontent.com/wicksy/laptop-build/master/bin/ansible/bootstrap.sh | /usr/bin/sudo /bin/bash
 $ /usr/bin/sudo -H -u ansible /bin/bash -c "cd /srv/ansible && /usr/bin/ansible-playbook --limit localhost -i /srv/ansible/hosts /srv/ansible/site.yml -vv"
 ```
+
+#### Post Installation
+
+Post installation steps might include:
+
+* Change the passphrase on the gpg key setup for your userid (if not changed in Pre Installation)
 
 #### Builds
 
