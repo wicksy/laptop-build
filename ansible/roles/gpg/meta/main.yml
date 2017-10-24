@@ -1,0 +1,3 @@
+dependencies:
+  - { role: users }
+  - { role: core_pkg }
