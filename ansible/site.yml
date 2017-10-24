@@ -18,6 +18,7 @@
     - entropy
     - firewall
     - gitsemver
+    - gpg
     - mounts
     - ntp
     - ssh
