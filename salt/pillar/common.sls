@@ -54,7 +54,11 @@ pkg:
     - nfs-common
     - ntop
     - openssl
+    - pavucontrol
     - pinta
+    - pulseaudio
+    - pulseaudio-module-x11
+    - pulseaudio-utils
     - python
     - python-pip
     - scrot
