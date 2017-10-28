@@ -26,5 +26,5 @@
   with_dict: "{{ users | default({}) }}"
 
 - name: Remove standard Ubuntu home directories
-  include: deldirs.yml user="{{ item.key }}" homedir="{{ item.value.home | default('/home/' + item.key) }}"
+  include_tasks: deldirs.yml user="{{ item.key }}" homedir="{{ item.value.home | default('/home/' + item.key) }}"
   with_dict: "{{ users | default({}) }}"
