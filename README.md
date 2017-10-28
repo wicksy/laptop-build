@@ -27,7 +27,7 @@ Does not work with the following:
 
 * Ubuntu 14.04 32-bit (Salt does not bootstrap - even older versions back to 0.15.0)
 
-Currently testing with Ansible 2.4.0.0.
+Requires at least Ansible 2.4.0.0 as some deprecated statements have been replaced (and only available in 2.4+).
 
 #### Pre Installation
 
