@@ -15,6 +15,7 @@ base:
     - salt
     - ssh
     - sshkeys
+    - sysdig
     - timezone
     - users
     - vagrant
