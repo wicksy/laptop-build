@@ -41,6 +41,7 @@ import pytest
   ("scrot"),
   ("software-properties-common"),
   ("suckless-tools"),
+  ("sysdig"),
   ("sysstat"),
   ("tree"),
   ("vagrant"),
