@@ -1,0 +1,13 @@
+- name: Import sysdig apt key
+  shell: curl -s https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -
+
+- name: Create sysdig apt repo
+  command: curl -s -o /etc/apt/sources.list.d/draios.list http://download.draios.com/stable/deb/draios.list
+
+- name: Install sysdig plus linux headers
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - linux-headers-{{ ansible_kernel }}
+    - sysdig
