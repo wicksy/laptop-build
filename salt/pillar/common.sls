@@ -35,6 +35,7 @@ pip:
 pkg:
   installed:
     - apt-file
+    - arandr
     - blktrace
     - chromium-browser
     - curl
@@ -46,6 +47,7 @@ pkg:
     - gnupg-agent
     - handbrake
     - handbrake-cli
+    - hardinfo
     - htop
     - i3
     - iotop
