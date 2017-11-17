@@ -1,5 +1,6 @@
 core_pkgs:
   - apt-file
+  - arandr
   - atom
   - blktrace
   - chromium-browser
@@ -11,6 +12,7 @@ core_pkgs:
   - gnupg
   - gnupg2
   - gnupg-agent
+  - hardinfo
   - handbrake
   - handbrake-cli
   - htop
