@@ -3,6 +3,7 @@ import pytest
 @pytest.mark.parametrize("name", [
   ("apt-file"),
   ("apt-transport-https"),
+  ("arandr"),
   ("atom"),
   ("blktrace"),
   ("ca-certificates"),
@@ -16,6 +17,7 @@ import pytest
   ("gnupg"),
   ("gnupg2"),
   ("gnupg-agent"),
+  ("hardinfo"),
   ("handbrake"),
   ("handbrake-cli"),
   ("haveged"),
