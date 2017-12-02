@@ -4,6 +4,7 @@ core_pkgs:
   - atom
   - blktrace
   - chromium-browser
+  - cowsay
   - curl
   - diod
   - firewalld
@@ -18,6 +19,7 @@ core_pkgs:
   - htop
   - i3
   - iotop
+  - ipython
   - language-pack-en-base
   - laptop-mode-tools
   - nfs-common
@@ -33,6 +35,7 @@ core_pkgs:
   - python-pip
   - python3-pip
   - scrot
+  - sl
   - suckless-tools
   - sysstat
   - tree
@@ -41,6 +44,7 @@ core_pkgs:
   - virtualbox
   - vlc
   - wget
+  - wireshark
   - whois
   - x11-xserver-utils
   - x264
