@@ -38,6 +38,7 @@ pkg:
     - arandr
     - blktrace
     - chromium-browser
+    - cowsay
     - curl
     - diod
     - fonts-font-awesome
@@ -51,6 +52,7 @@ pkg:
     - htop
     - i3
     - iotop
+    - ipython
     - language-pack-en-base
     - laptop-mode-tools
     - nfs-common
@@ -64,6 +66,7 @@ pkg:
     - python
     - python-pip
     - scrot
+    - sl
     - suckless-tools
     - sysstat
     - tree
@@ -73,6 +76,7 @@ pkg:
     - vlc
     - wget
     - whois
+    - wireshark
     - x11-xserver-utils
     - x264
     - xfce4-terminal
@@ -83,6 +87,7 @@ pkg:
 {% endif %}
 {% if grains['osmajorrelease'] in ['16'] %}
     - fonts-powerline
+    - lastpass-cli
     - rofi
 {% endif %}
 
