@@ -45,5 +45,6 @@
     state: latest
   with_items:
     - fonts-powerline
+    - lastpass-cli
     - rofi
   when: ansible_distribution_major_version == "16"
