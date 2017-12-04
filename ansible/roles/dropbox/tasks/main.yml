@@ -1,0 +1,17 @@
+- name: Remove temp package file
+  file:
+    path: /tmp/dropbox.deb
+    state: absent
+
+- name: Download deb package for dropbox
+  command: wget -O /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
+
+- name: Install dropbox
+  apt:
+    deb: /tmp/dropbox.deb
+    state: present
+
+- name: Remove temp package file
+  file:
+    path: /tmp/dropbox.deb
+    state: absent
