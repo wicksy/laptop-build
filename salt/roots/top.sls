@@ -4,6 +4,7 @@ base:
     - cron
     - docker
     - dotfiles
+    - dropbox
     - entropy
     - firewall
     - gitsemver
