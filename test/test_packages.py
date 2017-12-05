@@ -13,6 +13,7 @@ import pytest
   ("curl"),
   ("diod"),
   ("docker-ce"),
+  ("dropbox"),
   ("fonts-font-awesome"),
   ("git"),
   ("gnupg"),
