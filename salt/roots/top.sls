@@ -14,6 +14,7 @@ base:
     - pip
     - pkg
     - salt
+    - slack
     - ssh
     - sshkeys
     - sysdig
