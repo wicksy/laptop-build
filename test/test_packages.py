@@ -45,6 +45,7 @@ import pytest
   ("python-pip"),
   ("scrot"),
   ("sl"),
+  ("slack-desktop"),
   ("software-properties-common"),
   ("suckless-tools"),
   ("sysdig"),
