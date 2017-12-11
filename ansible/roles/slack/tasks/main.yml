@@ -1,0 +1,22 @@
+- name: Remove temp package file
+  file:
+    path: /tmp/slack.deb
+    state: absent
+
+- name: Download deb package for slack
+  command: wget -O /tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.0.0-amd64.deb
+
+- name: Install slack pre-reqs
+  package:
+    name: libappindicator1
+    state: latest
+
+- name: Install slack
+  apt:
+    deb: /tmp/slack.deb
+    state: present
+
+- name: Remove temp package file
+  file:
+    path: /tmp/slack.deb
+    state: absent
