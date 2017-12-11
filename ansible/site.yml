@@ -21,6 +21,7 @@
     - gpg
     - mounts
     - ntp
+    - slack
     - ssh
     - sshkeys
     - sysdig
