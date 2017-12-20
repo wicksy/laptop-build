@@ -35,6 +35,7 @@ import pytest
   ("/home/wicksy/.git-semver", "wicksy", "wicksy", "0755", "null"),
   ("/home/wicksy/.git-semver/config", "wicksy", "wicksy", "0644", "UPDATE_CHECK"),
   ("/home/wicksy/.gnupg", "wicksy", "wicksy", "0700", "null"),
+  ("/opt/boxcryptor/Boxcryptor_Portable.sh", "root", "root", "0755", "boxcryptor"),
 ])
 
 def test_files(host, name, user, group, mode, contains):
