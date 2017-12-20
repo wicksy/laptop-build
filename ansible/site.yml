@@ -10,23 +10,23 @@
 
   roles:
     - boxcryptor
-#    - core_pkg
-#    - core_pip
-#    - cron
-#    - docker
-#    - dotfiles
-#    - dropbox
-#    - entropy
-#    - firewall
-#    - gitsemver
-#    - gpg
-#    - mounts
-#    - ntp
-#    - slack
-#    - ssh
-#    - sshkeys
-#    - sysdig
-#    - timezone
-#    - users
-#    - vagrant
-#    - vim
+    - core_pkg
+    - core_pip
+    - cron
+    - docker
+    - dotfiles
+    - dropbox
+    - entropy
+    - firewall
+    - gitsemver
+    - gpg
+    - mounts
+    - ntp
+    - slack
+    - ssh
+    - sshkeys
+    - sysdig
+    - timezone
+    - users
+    - vagrant
+    - vim
