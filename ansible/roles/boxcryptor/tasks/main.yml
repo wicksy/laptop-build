@@ -1,0 +1,30 @@
+- name: Remove temp tarball
+  file:
+    path: /tmp/boxcryptor-portable.tar.gz
+    state: absent
+
+- name: Download Boxcryptor Portable tarball
+  command: wget -O /tmp/boxcryptor-portable.tar.gz https://www.boxcryptor.com/l/download-linux-portable
+
+- name: Make directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - /opt/
+    - /opt/boxcryptor/
+
+- name: Extract tarball
+  unarchive:
+    src: /tmp/boxcryptor-portable.tar.gz
+    dest: /opt/boxcryptor/
+    owner: root
+    group: root
+
+- name: Remove temp package file
+  file:
+    path: /tmp/boxcryptor-portable.tar.gz
+    state: absent
