@@ -9,23 +9,24 @@
   gather_facts: true
 
   roles:
-    - core_pkg
-    - core_pip
-    - cron
-    - docker
-    - dotfiles
-    - dropbox
-    - entropy
-    - firewall
-    - gitsemver
-    - gpg
-    - mounts
-    - ntp
-    - slack
-    - ssh
-    - sshkeys
-    - sysdig
-    - timezone
-    - users
-    - vagrant
-    - vim
+    - boxcryptor
+#    - core_pkg
+#    - core_pip
+#    - cron
+#    - docker
+#    - dotfiles
+#    - dropbox
+#    - entropy
+#    - firewall
+#    - gitsemver
+#    - gpg
+#    - mounts
+#    - ntp
+#    - slack
+#    - ssh
+#    - sshkeys
+#    - sysdig
+#    - timezone
+#    - users
+#    - vagrant
+#    - vim
