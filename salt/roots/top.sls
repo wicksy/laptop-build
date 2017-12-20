@@ -1,6 +1,7 @@
 base:
   '*':
     - atom
+    - boxcryptor
     - cron
     - docker
     - dotfiles
