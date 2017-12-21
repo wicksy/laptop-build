@@ -2,7 +2,7 @@ gpg-batch-file:
   file.managed:
     - name: /tmp/gpg.batch
     - source: salt://gpg/templates/gpg.batch
-    - owner: wicksy
+    - user: wicksy
     - group: wicksy
     - mode: 600
     - template: jinja
