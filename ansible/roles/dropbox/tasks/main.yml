@@ -4,7 +4,7 @@
     state: absent
 
 - name: Download deb package for dropbox
-  command: wget -O /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
+  command: wget --no-verbose -O /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
 
 - name: Install dropbox
   apt:

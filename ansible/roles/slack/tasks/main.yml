@@ -4,7 +4,7 @@
     state: absent
 
 - name: Download deb package for slack
-  command: wget -O /tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.0.0-amd64.deb
+  command: wget --no-verbose -O /tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.0.0-amd64.deb
 
 - name: Install slack pre-reqs
   package:

@@ -4,7 +4,7 @@
     state: absent
 
 - name: Download Boxcryptor Portable tarball
-  command: wget -O /tmp/boxcryptor-portable.tar.gz https://www.boxcryptor.com/l/download-linux-portable
+  command: wget --no-verbose -O /tmp/boxcryptor-portable.tar.gz https://www.boxcryptor.com/l/download-linux-portable
 
 - name: Make directories
   file:
