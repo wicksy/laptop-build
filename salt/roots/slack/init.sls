@@ -4,7 +4,7 @@ slack-remove-tmpfile:
 
 slack-download:
   cmd.run:
-    - name: wget -O /tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-2.9.0-amd64.deb
+    - name: wget --no-verbose -O /tmp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-2.9.0-amd64.deb
     - require:
       - file: slack-remove-tmpfile
 

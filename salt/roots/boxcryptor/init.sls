@@ -4,7 +4,7 @@ boxcryptor-remove-tmpfile:
 
 boxcryptor-download:
   cmd.run:
-    - name: wget -O /tmp/boxcryptor-portable.tar.gz https://www.boxcryptor.com/l/download-linux-portable
+    - name: wget --no-verbose -O /tmp/boxcryptor-portable.tar.gz https://www.boxcryptor.com/l/download-linux-portable
     - require:
       - file: boxcryptor-remove-tmpfile
 

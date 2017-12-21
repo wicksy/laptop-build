@@ -4,7 +4,7 @@ dropbox-remove-tmpfile:
 
 dropbox-download:
   cmd.run:
-    - name: wget -O /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
+    - name: wget --no-verbose -O /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
     - require:
       - file: dropbox-remove-tmpfile
 
