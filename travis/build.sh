@@ -19,10 +19,11 @@ ln -sf "$(pwd)/ansible" /srv/ansible
 
 # Apply Salt States
 #
-salt-call --local -l info state.apply
+salt-call --local -l warning state.apply
 
 # Apply Ansible Plays
 #
+export ANSIBLE_NOCOWS=1
 cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml --limit=travis-ci
 
 exit 0
