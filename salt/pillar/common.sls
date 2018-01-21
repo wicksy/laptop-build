@@ -53,6 +53,7 @@ pkg:
     - i3
     - iotop
     - ipython
+    - jq
     - language-pack-en-base
     - laptop-mode-tools
     - nfs-common
