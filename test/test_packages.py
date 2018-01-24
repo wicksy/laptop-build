@@ -30,6 +30,7 @@ import pytest
   ("jq"),
   ("language-pack-en-base"),
   ("laptop-mode-tools"),
+  ("meld"),
   ("nfs-common"),
   ("ntop"),
   ("ntp"),
