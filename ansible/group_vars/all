@@ -7,6 +7,7 @@ core_pkgs:
   - cowsay
   - curl
   - diod
+  - deluge
   - firewalld
   - fonts-font-awesome
   - git
