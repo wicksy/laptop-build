@@ -40,6 +40,7 @@ pkg:
     - chromium-browser
     - cowsay
     - curl
+    - deluge
     - diod
     - fonts-font-awesome
     - git
