@@ -11,6 +11,7 @@ import pytest
   ("cowsay"),
   ("cron"),
   ("curl"),
+  ("deluge"),
   ("diod"),
   ("docker-ce"),
   ("dropbox"),
