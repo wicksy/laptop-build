@@ -27,6 +27,7 @@ pip:
     - boto3
     - docker-py==1.7.2
     - gitpython
+    - httpie
     - mkdocs
     - pep8
     - virtualenv
