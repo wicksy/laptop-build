@@ -17,6 +17,7 @@ TESTINFRA="${1:-testinfra}"
 #
 tests="test/test_packages.py \
        test/test_services.py \
+       test/test_pips.py \
        test/test_files.py \
        test/test_links.py"
 
