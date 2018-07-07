@@ -17,13 +17,13 @@ ln -sf "$(pwd)/salt/roots" /srv/salt
 ln -sf "$(pwd)/salt/pillar" /srv/pillar
 ln -sf "$(pwd)/ansible" /srv/ansible
 
-# Apply Salt States
-#
-salt-call --local -l warning state.apply
-
 # Apply Ansible Plays
 #
 export ANSIBLE_NOCOWS=1
 cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml --limit=travis-ci
+
+# Apply Salt States
+#
+salt-call --local -l warning state.apply
 
 exit 0
