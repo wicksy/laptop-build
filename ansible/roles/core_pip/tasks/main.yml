@@ -9,7 +9,7 @@
 - name: Install pips (pip3)
   pip:
     name: "{{ item }}"
-    executable: pip3
+    executable: /usr/bin/pip3
     state: latest
   with_items:
     - "{{ core_pips | default([]) }}"
