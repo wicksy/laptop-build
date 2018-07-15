@@ -5,11 +5,3 @@
     state: latest
   with_items:
     - "{{ core_pips | default([]) }}"
-
-- name: Install pips (pip3)
-  pip:
-    name: "{{ item }}"
-    executable: pip3
-    state: latest
-  with_items:
-    - "{{ core_pips | default([]) }}"
