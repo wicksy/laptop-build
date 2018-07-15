@@ -34,9 +34,7 @@ core_pkgs:
   - pulseaudio-module-x11
   - pulseaudio-utils
   - python
-  - python3
   - python-pip
-  - python3-pip
   - scrot
   - sl
   - suckless-tools
