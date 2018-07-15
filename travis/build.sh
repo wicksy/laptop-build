@@ -20,7 +20,7 @@ ln -sf "$(pwd)/ansible" /srv/ansible
 # Apply Ansible Plays
 #
 export ANSIBLE_NOCOWS=1
-cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml --limit=travis-ci
+sudo -H -i -u root bash -c "cd /srv/ansible && /usr/bin/ansible-playbook -i hosts site.yml --limit=travis-ci"
 
 # Apply Salt States
 #
