@@ -14,4 +14,4 @@ ansible_python_interpreter=/usr/bin/python3
 localhost ansible_connection=local
 
 [travis-ci:vars]
-ansible_python_interpreter=/usr/bin/python3
+ansible_python_interpreter=/home/travis/virtualenv/python3.6.3/bin/python
