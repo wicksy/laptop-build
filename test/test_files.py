@@ -33,7 +33,7 @@ import pytest
   ("/home/wicksy/.config/xfce4/terminal/terminalrc", "wicksy", "wicksy", "0644", "FontName=Terminus 9"),
   ("/home/wicksy/.ssh/config", "wicksy", "wicksy", "0777", "ServerAliveInterval 60"),
   ("/home/wicksy/.git-semver", "wicksy", "wicksy", "0755", "null"),
-  ("/home/wicksy/.git-semver/config", "wicksy", "wicksy", "0644", "UPDATE_CHECK"),
+  ("/home/wicksy/.git-semver/config", "wicksy", "wicksy", "0644", "GIT_SIGN"),
   ("/home/wicksy/.gnupg", "wicksy", "wicksy", "0700", "null"),
   ("/opt/boxcryptor/Boxcryptor_Portable.sh", "root", "root", "0755", "boxcryptor"),
 ])
